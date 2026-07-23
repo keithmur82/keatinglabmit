@@ -1,0 +1,11 @@
+title: Keating Lab
+url: "https://keithmur82.github.io/keatinglabmit"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
