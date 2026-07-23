@@ -5,22 +5,26 @@ title: Publications
 
 <h2 class="section-header">Publications</h2>
 
-{% assign sorted_papers = site.data.papers | sort: "year" | reverse %}
-{% for paper in sorted_papers %}
-<div class="pub-entry">
-  <div class="pub-title">{{ paper.title }}</div>
-  <div class="pub-authors">{{ paper.authors }}</div>
-  <div class="pub-journal">{{ paper.journal }}, {{ paper.year }}</div>
-  <div class="pub-links">
-    {% if paper.journal_link and paper.journal_link != "" %}
-      <a href="{{ paper.journal_link }}" target="_blank">Journal</a>
-    {% endif %}
-    {% if paper.pubmed_link and paper.pubmed_link != "" %}
-      <a href="{{ paper.pubmed_link }}" target="_blank">PubMed Central</a>
-    {% endif %}
-    {% if paper.biorxiv_link and paper.biorxiv_link != "" %}
-      <a href="{{ paper.biorxiv_link }}" target="_blank">bioRxiv</a>
-    {% endif %}
+{% if site.data.papers %}
+  {% assign sorted_papers = site.data.papers | sort: "year" | reverse %}
+  {% for paper in sorted_papers %}
+  <div class="pub-entry">
+    <div class="pub-title">{{ paper.title }}</div>
+    <div class="pub-authors">{{ paper.authors }}</div>
+    <div class="pub-journal">{{ paper.journal }}, {{ paper.year }}</div>
+    <div class="pub-links">
+      {% if paper.journal_link and paper.journal_link != "" %}
+        <a href="{{ paper.journal_link }}" target="_blank">Journal</a>
+      {% endif %}
+      {% if paper.pubmed_link and paper.pubmed_link != "" %}
+        <a href="{{ paper.pubmed_link }}" target="_blank">PubMed Central</a>
+      {% endif %}
+      {% if paper.biorxiv_link and paper.biorxiv_link != "" %}
+        <a href="{{ paper.biorxiv_link }}" target="_blank">bioRxiv</a>
+      {% endif %}
+    </div>
   </div>
-</div>
-{% endfor %}
+  {% endfor %}
+{% else %}
+  <p class="text-muted">Publications coming soon.</p>
+{% endif %}
