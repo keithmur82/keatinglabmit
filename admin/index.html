@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keating Lab — Website Manager</title>
+  <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+  <style>
+    :root { --mit-red: #A31F34; }
+
+    body { background: #f5f5f5; font-family: system-ui, sans-serif; }
+
+    /* Navbar */
+    .navbar { background-color: var(--mit-red); }
+
+    /* Setup box */
+    .setup-box {
+      max-width: 480px;
+      margin: 5rem auto;
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .setup-logo { color: var(--mit-red); font-size: 1.4rem; font-weight: 700; }
+
+    /* Cards */
+    .section-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .section-title {
+      color: var(--mit-red);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Member rows */
+    .member-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .member-row:last-child { border-bottom: none; }
+    .member-thumb {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .member-placeholder {
+      width: 56px;
+      height: 56px;
+      background: #e8e8e8;
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 1.4rem;
+    }
+    .member-info { flex: 1; min-width: 0; }
+    .member-info strong { display: block; font-size: 0.95rem; }
+    .member-info span {
+      font-size: 0.82rem;
+      color: #666;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    /* Publications */
+    .pub-row {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .pub-row:last-child { border-bottom: none; }
+    .pub-row strong { font-size: 0.95rem; }
+    .pub-row .meta { font-size: 0.82rem; color: #666; }
+    .pub-row .pub-link-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.3rem;
+    }
+    .pub-link-pills a {
+      font-size: 0.75rem;
+      color: white;
+      background-color: #A31F34;
+      padding: 1px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .pub-link-pills a:hover { background-color: #7a1728; }
+
+    /* Alumni tags */
+    .alumni-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.82rem;
+      margin: 2px;
+    }
+    .alumni-tag button {
+      background: none;
+      border: none;
+      padding: 0;
+      font-size: 0.7rem;
+      color: #999;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .alumni-tag button:hover { color: #c00; }
+
+    /* Buttons */
+    .btn-primary { background-color: var(--mit-red); border-color: var(--mit-red); }
+    .btn-primary:hover { background-color: #7a1728; border-color: #7a1728; }
+    .btn-primary:focus { background-color: var(--mit-red); border-color: var(--mit-red); }
+
+    /* Modal header */
+    .modal-header-red {
+      background-color: var(--mit-red);
+      color: white;
+    }
+
+    /* Tabs */
+    .nav-tabs .nav-link { color: #555; }
+    .nav-tabs .nav-link.active {
+      color: var(--mit-red);
+      font-weight: 600;
+      border-bottom: 2px solid var(--mit-red);
+    }
+
+    /* Loading overlay */
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── LOADING OVERLAY ─────────────────────────────── -->
+<div class="loading-overlay" id="loadingOverlay" style="display:none">
+  <div class="spinner-border text-danger mb-3" role="status"></div>
+  <div class="text-muted" id="loadingMsg">Loading...</div>
+</div>
+
+<!-- ── SETUP SCREEN ────────────────────────────────── -->
+<div id="setupScreen">
+  <div class="setup-box">
+    <div class="setup-logo">Keating Lab</div>
+    <h5 class="mb-1 mt-1">Website Manager</h5>
+    <p class="text-muted mb-4" style="font-size:0.88rem">
+      Sign in to add people, update research descriptions, or add publications.
+    </p>
+    <div id="setupError" class="alert alert-danger py-2" 
+         style="display:none;font-size:0.88rem"></div>
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Access Code</label>
+      <input type="password" class="form-control" id="tokenInput"
+             placeholder="Paste your access code here"
+             onkeydown="if(event.key==='Enter') handleSetup()">
+      <div class="form-text mt-1">
+        Don't have an access code? Contact
+        <a href="mailto:keithmur@mit.edu">Keith Murray</a>.
+      </div>
+    </div>
+    <button class="btn btn-primary w-100" onclick="handleSetup()">
+      Sign In
+    </button>
+  </div>
+</div>
+
+<!-- ── MAIN APP ─────────────────────────────────────── -->
+<div id="appScreen" style="display:none">
+
+  <nav class="navbar navbar-dark px-4 py-2">
+    <span class="navbar-brand mb-0 fw-bold">Keating Lab — Website Manager</span>
+    <button class="btn btn-sm btn-outline-light" onclick="signOut()">Sign Out</button>
+  </nav>
+
+  <div class="container py-4" style="max-width:860px">
+
+    <!-- Status banner -->
+    <div id="statusAlert" class="alert mb-3" style="display:none"></div>
+
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-4">
+      <li class="nav-item">
+        <button class="nav-link active" id="tab-btn-people"
+                onclick="switchTab('people')">
+          👥 &nbsp;People
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" id="tab-btn-publications"
+                onclick="switchTab('publications')">
+          📄 &nbsp;Publications
+        </button>
+      </li>
+    </ul>
+
+    <!-- ── PEOPLE TAB ───────────────────────────────── -->
+    <div id="tab-people">
+
+      <!-- PhD Candidates -->
+      <div class="section-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="section-title">PhD Candidates</h5>
+          <button class="btn btn-primary btn-sm"
+                  onclick="openAddMember('grad_students')">
+            + Add PhD Student
+          </button>
+        </div>
+        <div id="list-grad_students"></div>
+      </div>
+
+      <!-- Postdocs -->
+      <div class="section-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="section-title">Postdoctoral Scientists</h5>
+          <button class="btn btn-primary btn-sm"
+                  onclick="openAddMember('postdocs')">
+            + Add Postdoc
+          </button>
+        </div>
+        <div id="list-postdocs"></div>
+      </div>
+
+      <!-- Alumni -->
+      <div class="section-card">
+        <h5 class="section-title mb-3">Alumni</h5>
+        <div id="alumni-section"></div>
+      </div>
+
+    </div>
+
+    <!-- ── PUBLICATIONS TAB ─────────────────────────── -->
+    <div id="tab-publications" style="display:none">
+      <div class="section-card">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="section-title">Publications</h5>
+          <button class="btn btn-primary btn-sm" onclick="openAddPaper()">
+            + Add Publication
+          </button>
+        </div>
+        <div id="list-papers"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ MODALS ══════════════════════════════════════════ -->
+
+<!-- Add / Edit Member -->
+<div class="modal fade" id="memberModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header modal-header-red">
+        <h5 class="modal-title" id="memberModalTitle">Add New Member</h5>
+        <button type="button" class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="m-edit-index">
+        <input type="hidden" id="m-edit-group">
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Full Name <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="m-name"
+                 placeholder="e.g. Jane Smith">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Research Description <span class="text-danger">*</span>
+          </label>
+          <textarea class="form-control" id="m-bio" rows="3"
+                    placeholder="A few sentences about their research focus...">
+          </textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Photo</label>
+            <input type="file" class="form-control" id="m-photo"
+                   accept="image/*"
+                   onchange="previewImage(this,'m-photo-preview')">
+            <div class="form-text">Square crop, JPG or PNG</div>
+            <img id="m-photo-preview" src="" alt=""
+                 style="display:none;width:80px;height:80px;
+                        object-fit:cover;border-radius:4px;margin-top:8px">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Protein Structure Image</label>
+            <input type="file" class="form-control" id="m-structure"
+                   accept="image/*"
+                   onchange="previewImage(this,'m-structure-preview')">
+            <div class="form-text">PNG preferred</div>
+            <img id="m-structure-preview" src="" alt=""
+                 style="display:none;width:80px;height:80px;
+                        object-fit:contain;border-radius:4px;margin-top:8px">
+          </div>
+        </div>
+
+        <div id="m-error" class="alert alert-danger py-2 mt-1"
+             style="display:none;font-size:0.88rem"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary"
+                data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="saveMember()">
+          Save Changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add Publication -->
+<div class="modal fade" id="paperModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-red">
+        <h5 class="modal-title">Add Publication</h5>
+        <button type="button" class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Paper Title <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="p-title"
+                 placeholder="Full title of the paper">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">
+            Authors <span class="text-danger">*</span>
+          </label>
+          <input type="text" class="form-control" id="p-authors"
+                 placeholder="e.g. Smith J, Jones A, Keating AE">
+        </div>
+
+        <div class="row">
+          <div class="col-8 mb-3">
+            <label class="form-label fw-semibold">
+              Journal <span class="text-danger">*</span>
+            </label>
+            <input type="text" class="form-control" id="p-journal"
+                   placeholder="e.g. Nature, Cell, PNAS">
+          </div>
+          <div class="col-4 mb-3">
+            <label class="form-label fw-semibold">
+              Year <span class="text-danger">*</span>
+            </label>
+            <input type="number" class="form-control" id="p-year"
+                   min="1990" max="2035">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Journal Link</label>
+          <input type="text" class="form-control" id="p-journal-link"
+                 placeholder="https://www.nature.com/articles/...">
+          <div class="form-text">Link to the paper on the journal website</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">PubMed Central Link</label>
+          <input type="text" class="form-control" id="p-pubmed-link"
+                 placeholder="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC...">
+          <div class="form-text">Leave blank if not available</div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">bioRxiv Link</label>
+          <input type="text" class="form-control" id="p-biorxiv-link"
+                 placeholder="https://www.biorxiv.org/content/...">
+          <div class="form-text">Leave blank if no preprint</div>
+        </div>
+
+        <div id="p-error" class="alert alert-danger py-2"
+             style="display:none;font-size:0.88rem"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary"
+                data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="savePaper()">
+          Save Publication
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Confirm -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body text-center pt-4 pb-2">
+        <i class="bi bi-exclamation-triangle-fill text-warning"
+           style="font-size:2rem"></i>
+        <p class="mt-3 mb-1 fw-semibold" id="confirmMsg">Are you sure?</p>
+        <p class="text-muted mb-0" style="font-size:0.82rem"
+           id="confirmSubMsg"></p>
+      </div>
+      <div class="modal-footer justify-content-center border-0 pb-3">
+        <button type="button" class="btn btn-outline-secondary btn-sm"
+                data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger btn-sm"
+                id="confirmBtn">Yes, continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SCRIPTS ════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script>
+'use strict';
+
+// ── CONFIG ────────────────────────────────────────────
+const OWNER     = 'keatinglab';
+const REPO      = 'keatinglab.github.io';
+const STORE_KEY = 'keatinglab_admin_token';
+const RAW_BASE  = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main`;
+const API_BASE  = `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
+
+// ── TOKEN ─────────────────────────────────────────────
+const getToken   = () => localStorage.getItem(STORE_KEY) || '';
+const saveToken  = t  => localStorage.setItem(STORE_KEY, t);
+const clearToken = () => localStorage.removeItem(STORE_KEY);
+
+function signOut() {
+  clearToken();
+  location.reload();
+}
+
+// ── STATE ─────────────────────────────────────────────
+let membersData = null;
+let membersSHA  = null;
+let papersData  = null;
+let papersSHA   = null;
+
+// ── GITHUB API ────────────────────────────────────────
+async function ghGet(path) {
+  const r = await fetch(`${API_BASE}/${path}`, {
+    headers: {
+      Authorization: `token ${getToken()}`,
+      Accept: 'application/vnd.github.v3+json'
+    }
+  });
+  if (!r.ok) throw new Error(`GET failed: ${r.status}`);
+  return r.json();
+}
+
+async function ghPut(path, textContent, message, sha = null) {
+  const body = {
+    message,
+    content: btoa(unescape(encodeURIComponent(textContent)))
+  };
+  if (sha) body.sha = sha;
+  const r = await fetch(`${API_BASE}/${path}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `token ${getToken()}`,
+      Accept: 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error(`PUT failed: ${r.status}`);
+  return r.json();
+}
+
+async function ghPutBinary(path, b64, message) {
+  let sha = null;
+  try { sha = (await ghGet(path)).sha; } catch {}
+  const body = { message, content: b64 };
+  if (sha) body.sha = sha;
+  const r = await fetch(`${API_BASE}/${path}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `token ${getToken()}`,
+      Accept: 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error(`Upload failed: ${r.status}`);
+  return r.json();
+}
+
+function decodeGH(encoded) {
+  return decodeURIComponent(escape(atob(encoded.replace(/\n/g, ''))));
+}
+
+// ── LOAD ──────────────────────────────────────────────
+async function loadData() {
+  showLoading('Loading website data...');
+  try {
+    const [mf, pf] = await Promise.all([
+      ghGet('_data/members.yml'),
+      ghGet('_data/papers.yml')
+    ]);
+    membersData = jsyaml.load(decodeGH(mf.content));
+    membersSHA  = mf.sha;
+    papersData  = jsyaml.load(decodeGH(pf.content)) || [];
+    papersSHA   = pf.sha;
+
+    membersData.grad_students        = membersData.grad_students        || [];
+    membersData.postdocs             = membersData.postdocs             || [];
+    membersData.alumni               = membersData.alumni               || {};
+    membersData.alumni.phd           = membersData.alumni.phd           || [];
+    membersData.alumni.ms            = membersData.alumni.ms            || [];
+    membersData.alumni.postdoc       = membersData.alumni.postdoc       || [];
+    membersData.alumni.urop          = membersData.alumni.urop          || [];
+    membersData.alumni.msrp          = membersData.alumni.msrp          || [];
+    membersData.alumni.hhmi_mit      = membersData.alumni.hhmi_mit      || [];
+    membersData.alumni.visiting      = membersData.alumni.visiting      || [];
+    membersData.alumni.technical_associate =
+      membersData.alumni.technical_associate || [];
+
+    renderAll();
+  } catch (e) {
+    showStatus('error',
+      'Could not load website data. Check your access code or try again.');
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── RENDER ────────────────────────────────────────────
+function renderAll() {
+  renderGroup('grad_students');
+  renderGroup('postdocs');
+  renderAlumni();
+  renderPapers();
+}
+
+function renderGroup(group) {
+  const el      = document.getElementById(`list-${group}`);
+  const members = membersData[group];
+  if (!members || members.length === 0) {
+    el.innerHTML =
+      '<div class="empty-state">No members yet. Add one above.</div>';
+    return;
+  }
+  el.innerHTML = members.map((m, i) => `
+    <div class="member-row">
+      ${m.image
+        ? `<img class="member-thumb"
+               src="${RAW_BASE}/${m.image.replace(/^\//,'')}"
+               onerror="this.style.display='none';
+                        this.nextElementSibling.style.display='flex'">
+           <div class="member-placeholder" style="display:none">
+             <i class="bi bi-person"></i>
+           </div>`
+        : `<div class="member-placeholder">
+             <i class="bi bi-person"></i>
+           </div>`
+      }
+      <div class="member-info">
+        <strong>${m.name}</strong>
+        <span>${m.bio
+          ? m.bio.substring(0, 90) + (m.bio.length > 90 ? '…' : '')
+          : ''}</span>
+      </div>
+      <div class="d-flex gap-2 flex-shrink-0">
+        <button class="btn btn-sm btn-outline-secondary"
+                onclick="openEditMember('${group}',${i})">
+          ✏️ Edit
+        </button>
+        <button class="btn btn-sm btn-outline-warning"
+                onclick="confirmAction(
+                  'Move to Alumni?',
+                  '${m.name} will be removed from the active list and added to Alumni.',
+                  () => moveToAlumni('${group}',${i}))">
+          → Alumni
+        </button>
+        <button class="btn btn-sm btn-outline-danger"
+                onclick="confirmAction(
+                  'Remove ${m.name}?',
+                  'They will be completely removed from the website.',
+                  () => removeMember('${group}',${i}))">
+          🗑
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderAlumni() {
+  const el = document.getElementById('alumni-section');
+  const a  = membersData.alumni;
+
+  const sections = [
+    { key: 'phd',                label: 'Ph.D. Alumni' },
+    { key: 'ms',                 label: 'M.S. Alumni' },
+    { key: 'postdoc',            label: 'Postdoctoral Alumni' },
+    { key: 'urop',               label: 'UROP' },
+    { key: 'msrp',               label: 'MSRP' },
+    { key: 'hhmi_mit',           label: 'HHMI/MIT' },
+    { key: 'visiting',           label: 'Visiting Students' },
+    { key: 'technical_associate',label: 'Technical Associates' }
+  ];
+
+  const makeTag = (type, i, name) =>
+    `<span class="alumni-tag">${name}
+       <button onclick="confirmAction('Remove ${name}?','',
+         () => removeAlumni('${type}',${i}))"
+               title="Remove">✕</button>
+     </span>`;
+
+  el.innerHTML = sections.map(s => `
+    <p class="mb-1 mt-3"
+       style="font-size:0.82rem;font-weight:600;color:#555">
+      ${s.label}
+    </p>
+    <div>
+      ${a[s.key] && a[s.key].length
+        ? a[s.key].map((p, i) => makeTag(s.key, i, p.name)).join('')
+        : '<span class="text-muted" style="font-size:0.82rem">None yet</span>'
+      }
+    </div>
+  `).join('');
+}
+
+function renderPapers() {
+  const el = document.getElementById('list-papers');
+  if (!papersData || papersData.length === 0) {
+    el.innerHTML =
+      '<div class="empty-state">No publications yet. Add one above.</div>';
+    return;
+  }
+  const sorted = [...papersData].sort((a, b) => b.year - a.year);
+  el.innerHTML = sorted.map(p => {
+    const idx = papersData.indexOf(p);
+    const links = [
+      p.journal_link ? `<a href="${p.journal_link}" target="_blank">Journal</a>` : '',
+      p.pubmed_link  ? `<a href="${p.pubmed_link}"  target="_blank">PubMed Central</a>` : '',
+      p.biorxiv_link ? `<a href="${p.biorxiv_link}" target="_blank">bioRxiv</a>` : ''
+    ].filter(Boolean).join('');
+
+    return `
+      <div class="pub-row d-flex justify-content-between align-items-start gap-3">
+        <div>
+          <strong>${p.title}</strong>
+          <div class="meta">
+            ${p.authors} — <em>${p.journal}</em>, ${p.year}
+          </div>
+          ${links
+            ? `<div class="pub-link-pills">${links}</div>`
+            : ''}
+        </div>
+        <button class="btn btn-sm btn-outline-danger flex-shrink-0"
+                onclick="confirmAction(
+                  'Remove this publication?','',
+                  () => removePaper(${idx}))">
+          🗑
+        </button>
+      </div>`;
+  }).join('');
+}
+
+// ── TABS ──────────────────────────────────────────────
+function switchTab(tab) {
+  document.getElementById('tab-people').style.display =
+    tab === 'people' ? '' : 'none';
+  document.getElementById('tab-publications').style.display =
+    tab === 'publications' ? '' : 'none';
+  document.getElementById('tab-btn-people')
+          .classList.toggle('active', tab === 'people');
+  document.getElementById('tab-btn-publications')
+          .classList.toggle('active', tab === 'publications');
+}
+
+// ── MEMBER MODAL ──────────────────────────────────────
+function openAddMember(group) {
+  clearMemberForm();
+  document.getElementById('memberModalTitle').textContent =
+    group === 'grad_students' ? 'Add New PhD Student' : 'Add New Postdoc';
+  document.getElementById('m-edit-index').value = '';
+  document.getElementById('m-edit-group').value = group;
+  new bootstrap.Modal(document.getElementById('memberModal')).show();
+}
+
+function openEditMember(group, index) {
+  const m = membersData[group][index];
+  clearMemberForm();
+  document.getElementById('memberModalTitle').textContent = 'Edit Member';
+  document.getElementById('m-edit-index').value = index;
+  document.getElementById('m-edit-group').value = group;
+  document.getElementById('m-name').value = m.name || '';
+  document.getElementById('m-bio').value  = m.bio  || '';
+
+  if (m.image) {
+    const pr = document.getElementById('m-photo-preview');
+    pr.src = `${RAW_BASE}/${m.image.replace(/^\//,'')}`;
+    pr.style.display = 'block';
+  }
+  if (m.structure) {
+    const pr = document.getElementById('m-structure-preview');
+    pr.src = `${RAW_BASE}/${m.structure.replace(/^\//,'')}`;
+    pr.style.display = 'block';
+  }
+  new bootstrap.Modal(document.getElementById('memberModal')).show();
+}
+
+function clearMemberForm() {
+  ['m-name','m-bio'].forEach(id =>
+    document.getElementById(id).value = '');
+  ['m-photo','m-structure'].forEach(id =>
+    document.getElementById(id).value = '');
+  ['m-photo-preview','m-structure-preview'].forEach(id => {
+    const el = document.getElementById(id);
+    el.src = ''; el.style.display = 'none';
+  });
+  document.getElementById('m-error').style.display = 'none';
+}
+
+function previewImage(input, previewId) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const pr = document.getElementById(previewId);
+    pr.src = e.target.result;
+    pr.style.display = 'block';
+  };
+  reader.readAsDataURL(file);
+}
+
+function toFilename(name, ext) {
+  return name.toLowerCase()
+             .replace(/\s+/g, '-')
+             .replace(/[^a-z0-9-]/g, '')
+    + '.' + ext;
+}
+
+async function uploadImageFile(file, path) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = async e => {
+      try {
+        const b64 = e.target.result.split(',')[1];
+        await ghPutBinary(path, b64, `Upload ${path}`);
+        resolve();
+      } catch (err) { reject(err); }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function saveMember() {
+  const name      = document.getElementById('m-name').value.trim();
+  const bio       = document.getElementById('m-bio').value.trim();
+  const group     = document.getElementById('m-edit-group').value;
+  const editIdx   = document.getElementById('m-edit-index').value;
+  const photoFile = document.getElementById('m-photo').files[0];
+  const structFile= document.getElementById('m-structure').files[0];
+  const errEl     = document.getElementById('m-error');
+
+  if (!name || !bio) {
+    errEl.textContent = 'Name and research description are required.';
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+  showLoading('Saving…');
+
+  try {
+    const existing = editIdx !== ''
+      ? membersData[group][parseInt(editIdx)]
+      : {};
+
+    let imagePath     = existing.image     || '';
+    let structurePath = existing.structure || '';
+
+    if (photoFile) {
+      const ext   = photoFile.name.split('.').pop().toLowerCase();
+      const fname = toFilename(name, ext);
+      await uploadImageFile(photoFile, `assets/img/members/${fname}`);
+      imagePath = `/assets/img/members/${fname}`;
+    }
+    if (structFile) {
+      const ext   = structFile.name.split('.').pop().toLowerCase();
+      const fname = toFilename(name, ext);
+      await uploadImageFile(structFile, `assets/img/structures/${fname}`);
+      structurePath = `/assets/img/structures/${fname}`;
+    }
+
+    const member = { name, bio, image: imagePath, structure: structurePath };
+
+    if (editIdx !== '') {
+      membersData[group][parseInt(editIdx)] = member;
+    } else {
+      membersData[group].push(member);
+    }
+
+    const result = await saveMembers(
+      editIdx !== '' ? `Update ${name}` : `Add ${name}`
+    );
+    membersSHA = result.content.sha;
+
+    bootstrap.Modal.getInstance(
+      document.getElementById('memberModal')
+    ).hide();
+    renderAll();
+    showStatus('success',
+      `✅ ${name} has been ${editIdx !== '' ? 'updated' : 'added'}.
+       The website will refresh in about 60 seconds.`);
+  } catch (e) {
+    errEl.textContent = 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+async function saveMembers(message) {
+  const yaml = jsyaml.dump(membersData, { lineWidth: -1, quotingType: '"' });
+  return ghPut('_data/members.yml', yaml, message, membersSHA);
+}
+
+// ── MOVE TO ALUMNI ────────────────────────────────────
+async function moveToAlumni(group, index) {
+  const m    = membersData[group][index];
+  const type = group === 'grad_students' ? 'phd' : 'postdoc';
+  showLoading('Moving to alumni…');
+  try {
+    membersData[group].splice(index, 1);
+    membersData.alumni[type].push({ name: m.name });
+    const result = await saveMembers(`Move ${m.name} to alumni`);
+    membersSHA = result.content.sha;
+    renderAll();
+    showStatus('success',
+      `✅ ${m.name} moved to Alumni. Website updates in ~60 seconds.`);
+  } catch (e) {
+    showStatus('error', 'Something went wrong. Please try again.');
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── REMOVE MEMBER ─────────────────────────────────────
+async function removeMember(group, index) {
+  const name = membersData[group][index].name;
+  showLoading('Removing…');
+  try {
+    membersData[group].splice(index, 1);
+    const result = await saveMembers(`Remove ${name}`);
+    membersSHA = result.content.sha;
+    renderAll();
+    showStatus('success', `✅ ${name} removed from website.`);
+  } catch (e) {
+    showStatus('error', 'Something went wrong. Please try again.');
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── REMOVE ALUMNI ─────────────────────────────────────
+async function removeAlumni(type, index) {
+  const name = membersData.alumni[type][index].name;
+  showLoading('Removing…');
+  try {
+    membersData.alumni[type].splice(index, 1);
+    const result = await saveMembers(`Remove alumni ${name}`);
+    membersSHA = result.content.sha;
+    renderAll();
+    showStatus('success', `✅ ${name} removed from alumni list.`);
+  } catch (e) {
+    showStatus('error', 'Something went wrong. Please try again.');
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── PUBLICATIONS ──────────────────────────────────────
+function openAddPaper() {
+  document.getElementById('p-title').value        = '';
+  document.getElementById('p-authors').value      = '';
+  document.getElementById('p-journal').value      = '';
+  document.getElementById('p-year').value         = new Date().getFullYear();
+  document.getElementById('p-journal-link').value = '';
+  document.getElementById('p-pubmed-link').value  = '';
+  document.getElementById('p-biorxiv-link').value = '';
+  document.getElementById('p-error').style.display = 'none';
+  new bootstrap.Modal(document.getElementById('paperModal')).show();
+}
+
+async function savePaper() {
+  const title        = document.getElementById('p-title').value.trim();
+  const authors      = document.getElementById('p-authors').value.trim();
+  const journal      = document.getElementById('p-journal').value.trim();
+  const year         = parseInt(document.getElementById('p-year').value);
+  const journal_link = document.getElementById('p-journal-link').value.trim();
+  const pubmed_link  = document.getElementById('p-pubmed-link').value.trim();
+  const biorxiv_link = document.getElementById('p-biorxiv-link').value.trim();
+  const errEl        = document.getElementById('p-error');
+
+  if (!title || !authors || !journal || !year) {
+    errEl.textContent = 'Please fill in title, authors, journal and year.';
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+  showLoading('Saving publication…');
+
+  try {
+    const paper = { title, authors, journal, year };
+    if (journal_link) paper.journal_link = journal_link;
+    if (pubmed_link)  paper.pubmed_link  = pubmed_link;
+    if (biorxiv_link) paper.biorxiv_link = biorxiv_link;
+
+    papersData.unshift(paper);
+
+    const yaml = jsyaml.dump(papersData, { lineWidth: -1, quotingType: '"' });
+    const result = await ghPut('_data/papers.yml', yaml,
+      `Add paper: ${title}`, papersSHA);
+    papersSHA = result.content.sha;
+
+    bootstrap.Modal.getInstance(
+      document.getElementById('paperModal')
+    ).hide();
+    renderAll();
+    showStatus('success',
+      '✅ Publication added. Website updates in ~60 seconds.');
+  } catch (e) {
+    errEl.textContent = 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+async function removePaper(index) {
+  const title = papersData[index].title;
+  showLoading('Removing…');
+  try {
+    papersData.splice(index, 1);
+    const yaml = jsyaml.dump(papersData, { lineWidth: -1, quotingType: '"' });
+    const result = await ghPut('_data/papers.yml', yaml,
+      `Remove paper: ${title}`, papersSHA);
+    papersSHA = result.content.sha;
+    renderAll();
+    showStatus('success', '✅ Publication removed.');
+  } catch (e) {
+    showStatus('error', 'Something went wrong. Please try again.');
+    console.error(e);
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── UI HELPERS ────────────────────────────────────────
+function showLoading(msg) {
+  document.getElementById('loadingMsg').textContent = msg;
+  document.getElementById('loadingOverlay').style.display = 'flex';
+}
+function hideLoading() {
+  document.getElementById('loadingOverlay').style.display = 'none';
+}
+
+function showStatus(type, msg) {
+  const el = document.getElementById('statusAlert');
+  el.className =
+    `alert ${type === 'success' ? 'alert-success' : 'alert-danger'} mb-3`;
+  el.textContent = msg;
+  el.style.display = 'block';
+  window.scrollTo(0, 0);
+  if (type === 'success')
+    setTimeout(() => el.style.display = 'none', 7000);
+}
+
+let _confirmCb = null;
+function confirmAction(title, subtitle, callback) {
+  document.getElementById('confirmMsg').textContent    = title;
+  document.getElementById('confirmSubMsg').textContent = subtitle;
+  _confirmCb = callback;
+  new bootstrap.Modal(document.getElementById('confirmModal')).show();
+}
+document.getElementById('confirmBtn').addEventListener('click', () => {
+  bootstrap.Modal.getInstance(
+    document.getElementById('confirmModal')
+  ).hide();
+  if (_confirmCb) _confirmCb();
+});
+
+// ── SETUP ─────────────────────────────────────────────
+async function handleSetup() {
+  const token = document.getElementById('tokenInput').value.trim();
+  if (!token) return;
+  const errEl = document.getElementById('setupError');
+  errEl.style.display = 'none';
+  showLoading('Verifying access code…');
+  saveToken(token);
+  try {
+    await ghGet('_data/members.yml');
+    document.getElementById('setupScreen').style.display = 'none';
+    document.getElementById('appScreen').style.display   = 'block';
+    await loadData();
+  } catch {
+    clearToken();
+    errEl.textContent =
+      'Access code not recognized. Please check and try again, or contact Keith.';
+    errEl.style.display = 'block';
+  } finally {
+    hideLoading();
+  }
+}
+
+// ── INIT ──────────────────────────────────────────────
+(async function () {
+  if (getToken()) {
+    document.getElementById('setupScreen').style.display = 'none';
+    document.getElementById('appScreen').style.display   = 'block';
+    await loadData();
+  }
+}());
+</script>
+</body>
+</html>
