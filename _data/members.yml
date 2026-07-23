@@ -1,0 +1,160 @@
+pi:
+  name: Amy E. Keating
+  title: Professor of Biology and Biological Engineering
+  image: /assets/img/members/amy-keating.jpg
+  education:
+    - "B.A. Harvard (physics) 1992"
+    - "Ph.D. UCLA (physical organic chemistry) 1998"
+    - "Postdoctoral training with Peter S. Kim and Bruce Tidor, MIT"
+    - "Joined MIT faculty in 2002"
+  email: keating@mit.edu
+  cv: /assets/pdf/keating-cv.pdf
+  spotlight: https://biology.mit.edu/profile/amy-e-keating/
+
+grad_students:
+  - name: Lindsey Guan
+    image: /assets/img/members/lindsey-guan.jpg
+    structure: /assets/img/structures/lindsey-structure.sfg 
+    bio: "I'm working on computational methods for designing highly target-selective peptide binders, and I'm interested in interpretable machine learning."
+
+  - name: Ellen Irving
+    image: /assets/img/members/ellen-irving.jpg
+    structure: /assets/img/structures/ellen-structure.png
+    bio: "I'm working on multivalency in the context of short linear motif binding focusing on the activation of the E3 ubiquitin ligase Itch."
+
+  - name: Cora Wendlandt
+    image: /assets/img/members/cora-wendlandt.jpg
+    structure: /assets/img/structures/cora-structure.png
+    bio: "Cyclotides are small, cyclic plant proteins renowned for their exceptional stability against heat, pH, and proteolysis. My project aims to enhance cyclotide yeast surface display through integrated computational tools to streamline binder discovery, affinity maturation, and developability optimization."
+
+  - name: Foster Birnbaum
+    image: /assets/img/members/foster-birnbaum.jpg
+    structure: /assets/img/structures/foster-structure.svg 
+    bio: "I develop machine learning models for protein design. I work on models that learn sequence-energy landscapes conditioned on protein structure and use the learned energy landscapes to design novel protein sequences and predict the effects of mutations."
+
+  - name: Haley Goodwin
+    image: /assets/img/members/haley-goodwin.jpg
+    structure: /assets/img/structures/haley-structure.png
+    bio: "I am working on SLiM prediction and design."
+
+  - name: Jessie Gan
+    image: /assets/img/members/jessie-guan.jpg
+    structure: /assets/img/structures/jessie-structure.png
+    bio: "I am working on peptide binder designs and modeling SLiM biophysics."
+
+postdocs:
+  - name: Joel Sexton
+    image: /assets/img/members/joel-sexton.jpg
+    structure: /assets/img/structures/joel-structure.png
+    bio: "I study domain peptide-peptide interactions using photoactivatable cross linkers that label binding site motifs."
+
+  - name: Jackson Halpin
+    image: /assets/img/members/jackson-halpin.jpg
+    structure: /assets/img/structures/jackson-structure.png
+    bio: "I build computational peptide-design approaches to generate inhibitors of challenging protein–protein interfaces. A key theme in my research is engineering conformationally pre-organized peptides that bind more tightly to target proteins."
+
+  - name: Sergei Kotelnikov
+    image: /assets/img/members/sergei-kotelnikov.jpg
+    structure: /assets/img/structures/sergei-structure.png
+    bio: "I develop computational methods for structural modeling of proteins and their interactions. In particular, I aim to enrich methodology with machine learning models that incorporate prior physical and geometric knowledge of the problem."
+
+alumni:
+  phd:
+    - name: Jen Kosmatka, Ph.D.
+    - name: Dia Ghose, Ph.D.
+    - name: Avinoam Singer, Ph.D.
+    - name: Sebastian Swanson, Ph.D.
+    - name: Fiona Aguilar, Ph.D.
+    - name: Theresa Hwang, Ph.D.
+    - name: Glenna Wink Foight, Ph.D.
+    - name: Jen Kaplan, Ph.D.
+    - name: Christopher Negron, Ph.D.
+    - name: Orr Ashenberg, Ph.D.
+    - name: Aaron Wade Reinke, Ph.D.
+    - name: T. Scott Chen, Ph.D.
+    - name: James Apgar, Ph.D.
+    - name: Gevorg Grigoryan, Ph.D.
+    - name: Christina Taylor, Ph.D.
+    - name: Justin Jenson, Ph.D.
+    - name: Vincent Xue, Ph.D.
+    - name: Nora Zizlsperger, Ph.D.
+    - name: Emiko Fire, Ph.D.
+    - name: Karl Gutwin, Ph.D.
+  ms:
+    - name: Danny Park, MS Computer Science
+    - name: Kevin Weston, MS Computer Science
+    - name: Mindren Lu, MS Electrical Engineering & Computer Science
+  postdoc:
+    - name: Dustin Britton, Ph.D.
+    - name: Israel Desta, Ph.D.
+    - name: Federica Rigoldi, Ph.D.
+    - name: Tirtha Mandal, Ph.D.
+    - name: Dustin Whitney, Ph.D.
+    - name: Won Min Park, Ph.D.
+    - name: Vincent Frappier, Ph.D.
+    - name: Raheleh Rezaei Araghi, Ph.D.
+    - name: Jeremy Curuksu, Ph.D.
+    - name: Joe DeBartolo, Ph.D.
+    - name: Karl Hauschild, Ph.D.
+    - name: Vladimir Potapov, Ph.D.
+    - name: Lothar Reich, Ph.D.
+    - name: Yong Ho Kim, Ph.D.
+    - name: Jaylene Ollivierre, Ph.D.
+    - name: Sanjib Dutta, Ph.D.
+    - name: Josh Sims, Ph.D.
+    - name: Suengsoo Hahn, Ph.D.
+    - name: Xiaoran Fu, Ph.D.
+    - name: Taijiao Jiang, Ph.D.
+    - name: Kelly Elkins, Ph.D.
+    - name: Jiangang Chen, Ph.D.
+    - name: John Newman, Ph.D.
+  urop:
+    - name: Alex Li
+    - name: Amogh Bhatnagar
+    - name: Venkatesh Sivaraman
+    - name: Charlie Nodus
+    - name: Lily Bailey
+    - name: Madeleine Duran
+    - name: Alyssa Chen
+    - name: Daniel Richman
+    - name: Tejas Navaratna
+    - name: Priya Veeraraghavan
+    - name: Skanda Koppula
+    - name: Judy Baek
+    - name: Sahar Alkhairy
+    - name: Stephanie Su
+    - name: Hector Palacios
+    - name: Emmanuel de los Santos
+    - name: Shirin Pillay (Grossman)
+    - name: Sara Mouradian
+    - name: Alejandro Ochoa
+    - name: Devoot Majumdar
+    - name: Steven Wang
+  msrp:
+    - name: Vincent Artuso
+    - name: Ellen Irving
+    - name: "Alejandra Ramos*"
+    - name: "Meucci Ilunga*"
+    - name: "Hana Flores*"
+    - name: Nomongo Dorjsuren
+    - name: Hector Nieves-Rosado
+    - name: Luis Martinez
+    - name: Daniel Packer
+    - name: Nathan Lawless
+    - name: Rachit Neupane
+    - name: Russell Goodman
+    - name: Wilfredo Garcia-Beltran
+    - name: Jason Tan
+    - name: Larry Hendrix
+  hhmi_mit:
+    - name: Kate Rosen-Gagnon
+    - name: Eliza Genilo
+  visiting:
+    - name: Molly Carney
+    - name: Michael Schneider
+    - name: Nicolas Levinson
+  technical_associate:
+    - name: Bonnie Su
+    - name: Hongwei Zhu
+    - name: Lindsey Stretz
+    - name: Jeremy Fisher

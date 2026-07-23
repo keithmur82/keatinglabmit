@@ -1,0 +1,639 @@
+- title: "Beyond native sequence recovery: Improved modeling of the sequence-energy landscape of protein structures"
+  authors: "Birnbaum F, Keating AE"
+  journal: "Proc Natl Acad Sci USA"
+  year: 2026
+  journal_link: "https://www.pnas.org/doi/10.1073/pnas.2535494123"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13342849/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.64898/2026.01.14.699067v2"
+
+- title: "Design of specific peptide inhibitors of toxin-antitoxin-mediated anti-phage defense"
+  authors: "Ghose D, Swanson S, Birnbaum F, ​​​​Britton D, Gan J, Mahoney E, Laub M, Keating AE"
+  journal: "ACS Synth Biol"
+  year: 2025
+  journal_link: "https://pubs.acs.org/doi/10.1021/acssynbio.5c00498#"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12739935/"
+  biorxiv_link: ""
+  
+- title: "Training Bias and Sequence Alignments Shape Protein-Peptide Docking by AlphaFold and Related Methods"
+  authors: "Guan L, Keating AE"
+  journal: "Protein Sci"
+  year: 2025
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.70331"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12518507/"
+  biorxiv_link: ""
+  
+- title: "PairK: Pairwise k-mer alignment for quantifying protein motif conservation in disordered regions"
+  authors: "Lee T, Keating AE"
+  journal: "Protein Sci"
+  year: 2024
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.70004"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11669117/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2024.07.23.604860v1"
+
+- title: "Jointly Embedding Protein Structures and Sequences through Residue Level Alignment"
+  authors: "Birnbaum F, Jain S, Madry A, Keating AE"
+  journal: "American Physical Society"
+  year: 2024
+  journal_link: "https://journals.aps.org/prxlife/abstract/10.1103/PRXLife.2.043013"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12490763/"
+  biorxiv_link: ""
+
+- title: "Elaboration of the Homer1 recognition landscape reveals incomplete divergence of paralogous EVH1 domains"
+  authors: "Singer A, Ramos A, Keating AE"
+  journal: "Protein Sci"
+  year: 2024
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.5094"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11237882/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2024.01.23.576863v1.full"
+
+- title: "Marginal specificity in protein interactions constrains evolution of a paralogous family"
+  authors: "Ghose DA, Przydzial KE, Mahoney EM, Laub MT, Keating AE"
+  journal: "Proc Natl Acad Sci USA"
+  year: 2023
+  journal_link: "https://www.pnas.org/doi/10.1073/pnas.2221163120"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10160972/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2023.02.18.529082v1"
+
+- title: "Peptides from human BNIP5 and PXT1 and non-native binders of pro-apoptotic BAK can directly activate or inhibit BAK-mediated membrane permeabilization"
+  authors: "Aguilar F, Stacey Yu, Grant RA, Swanson S, Ghose D, Su BG, Sorosiek KA, Keating AE"
+  journal: "Structure"
+  year: 2023
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0969212623000011?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9992319/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2022.05.07.491048v2.full"
+
+- title: "Neural network-derived Potts models for structure-based protein design using backbone atomic coordinates and tertiary motifs"
+  authors: "Li AJ, Lu M, Desta I, Sundar V, Grigoryan G, Keating AE"
+  journal: "Protein Sci"
+  year: 2022
+  journal_link: "https://onlinelibrary.wiley.com/doi/full/10.1002/pro.4554"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9854172/"
+  biorxiv_link: ""
+
+- title: "Molecular determinants of TRAF6 binding specificity suggest that native interaction partners are not optimized for affinity"
+  authors: "Halpin J, Whitney D, Rigoldi F, Sivaraman V, Singer A, Keating AE"
+  journal: "Protein Sci"
+  year: 2022
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.4429"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9597381/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2022.05.08.491058v3"
+
+- title: "Tertiary motifs as building blocks for the design of protein-binding peptides"
+  authors: "Swanson S, Sivaraman V, Grigoryan G, Keating AE"
+  journal: "Protein Sci"
+  year: 2022
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.4322"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9088223/"
+  biorxiv_link: ""
+
+- title: "Native proline-rich motifs exploit sequence context to target actin-remodeling Ena/VASP proteins"
+  authors: "Hwang T, Grant RA, Ilunga MW, Sivaraman V, Keating AE"
+  journal: "eLife"
+  year: 2021
+  journal_link: "https://elifesciences.org/articles/70680"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8789275/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2021.03.22.436451v2"
+
+- title: "A distributed residue network permits conformational binding specificity in a conserved family of actin remodelers"
+  authors: "Hwang T, Parker S, Hill SM, Ilunga MW, Grant RA, Mouneimne G, Keating AE"
+  journal: "eLife"
+  year: 2021
+  journal_link: "https://elifesciences.org/articles/70601"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8639148/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/2021.05.27.445944v2"
+
+- title: "Data-driven computational protein design"
+  authors: "Frappier V, Keating AE"
+  journal: "Curr Opin Struct Biol"
+  year: 2021
+  journal_link: "https://www.sciencedirect.com/science/article/abs/pii/S0959440X21000488?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8405559/"
+  biorxiv_link: ""
+
+- title: "Spatial Multiplexing of Fluorescent Reporters for Imaging Signaling Network Dynamics"
+  authors: "Linghu C, Johnson SL, Valdes PA, Shemesh OA, Park WM, Park D, Piatkevich KD, Wassie AT, Liu Y, An B, Barnes SA, Celiker OT, Yao CC, Yu CJ, Wang R, Adamala KP, Bear MF, Keating AE, Boyden ES"
+  journal: "Cell"
+  year: 2020
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0092867420313994?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7771521/"
+  biorxiv_link: ""
+
+- title: "Precision Calcium Imaging of Dense Neural Populations via a Cell-Body-Targeted Calcium Indicator"
+  authors: "Shemesh OA, Linghu C, Piatkevich KD, Goodwin D, Celiker OT, Gritton HJ, Romano MF, Gao R, Yu CJ, Tseng HA, Bensussen S, Narayan S, Yang CT, Freifeld L, Siciliano CA, Gupta I, Wang J, Pak N, Yoon YG, Ullmann JFP, Guner-Ataman B, Noamany H, Sheinkopf ZR, Park WM, Asano S, Keating AE, Trimmer JS, Reimer J, Tolias AS, Bear MF, Tye KM, Han X, Ahrens MB, Boyden ES"
+  journal: "Neuron"
+  year: 2020
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0896627320303986?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7415598/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/773069v1.full"
+
+- title: "Tertiary Structural Motif Sequence Statistics Enable Facile Prediction and Design of Peptides that Bind Anti-apoptotic Bfl-1 and Mcl-1"
+  authors: "Frappier V, Jenson JM, Zhou J, Grigoryan G, Keating AE"
+  journal: "Structure"
+  year: 2019
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0969212619300085?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6447450/"
+  biorxiv_link: "https://www.biorxiv.org/content/10.1101/425926v3"
+
+- title: "Peptide design by optimization on a data-parameterized protein interaction landscape"
+  authors: "Jenson JM, Xue V, Stretz L, Mandal T, Reich LL, Keating AE"
+  journal: "Proc Natl Acad Sci USA"
+  year: 2018
+  journal_link: "https://www.pnas.org/doi/10.1073/pnas.1812939115?url_ver=Z39.88-2003&rfr_id=ori%3Arid%3Acrossref.org&rfr_dat=cr_pub++0pubmed"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6217393/"
+  biorxiv_link: ""
+
+- title: "Iterative optimization yields Mcl-1-targeting stapled peptides with selective cytotoxicity to Mcl-1-dependent cancer cells"
+  authors: "Rezaei Araghi R, Bird GH, Ryan JA, Jenson JM, Godes M, Pritz JR, Grant RA, Letai A, Walensky LD, Keating AE"
+  journal: "Proc Natl Acad Sci USA"
+  year: 2018
+  journal_link: "https://www.pnas.org/doi/full/10.1073/pnas.1712952115"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5798337/"
+  biorxiv_link: ""
+
+- title: "PixelDB: Protein-peptide complexes annotated with structural conservation of the peptide binding mode"
+  authors: "Frappier V, Duran M, Keating AE"
+  journal: "Protein Sci"
+  year: 2018
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.3320"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5734312/"
+  biorxiv_link: ""
+
+- title: "Modular assembly of a protein nanotriangle using orthogonally interacting coiled coils"
+  authors: "Park WM, Bedewy M, Berggren KK, Keating AE"
+  journal: "Sci Rep"
+  year: 2017
+  journal_link: "https://www.nature.com/articles/s41598-017-10918-6"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5585338/"
+  biorxiv_link: ""
+
+- title: "Epistatic mutations in PUMA BH3 drive an alternate binding mode to potently and selectively inhibit anti-apoptotic Bfl-1"
+  authors: "Jenson JM, Ryan JA, Grant RA, Letai A, Keating AE"
+  journal: "eLife"
+  year: 2017
+  journal_link: "https://elifesciences.org/articles/25541"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5464773/"
+  biorxiv_link: ""
+
+- title: "Combinatorial bZIP dimers display complex DNA-binding specificity landscapes"
+  authors: "Rodriguez-Martinez JA, Reinke AW, Bhimsaria D, Keating AE, Ansari AZ"
+  journal: "eLife"
+  year: 2017
+  journal_link: "https://elifesciences.org/articles/19272"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5349851/"
+  biorxiv_link: ""
+
+- title: "Enriching Peptide Libraries for Binding Affinity and Specificity Through Computationally Directed Library Design"
+  authors: "Foight GW, Chen TS, Richman D, Keating AE"
+  journal: "Methods Mol Biol"
+  year: 2017
+  journal_link: "https://link.springer.com/protocol/10.1007/978-1-4939-6798-8_13"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5553629/"
+  biorxiv_link: ""
+
+- title: "AB-Bind: Antibody binding mutational database for computational affinity predictions"
+  authors: "Sirin S, Apgar JR, Bennett EM, Keating AE"
+  journal: "Protein Sci"
+  year: 2016
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.2829"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4815335/"
+  biorxiv_link: ""
+
+- title: "Designing helical peptide inhibitors of protein-protein interactions"
+  authors: "Rezaei Araghi R, Keating AE"
+  journal: "Curr Opin Struct Biol"
+  year: 2016
+  journal_link: "https://www.sciencedirect.com/science/article/abs/pii/S0959440X16300306?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5282971/"
+  biorxiv_link: ""
+
+- title: "Comparison of the peptide binding preferences of three closely related TRAF paralogs: TRAF2, TRAF3, and TRAF5"
+  authors: "Foight GW, Keating AE"
+  journal: "Protein Sci"
+  year: 2016
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.2881"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4918428/"
+  biorxiv_link: ""
+
+- title: "Rapid Optimization of Mcl-1 Inhibitors using Stapled Peptide Libraries Including Non-Natural Side Chains"
+  authors: "Rezaei Araghi R, Ryan JA, Letai A, Keating AE"
+  journal: "ACS Chem Biol"
+  year: 2016
+  journal_link: "https://pubs.acs.org/doi/10.1021/acschembio.5b01002"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4874891/"
+  biorxiv_link: ""
+
+- title: "The Orientations of Large Aspect-Ratio Coiled-Coil Proteins Attached to Gold Nanostructures"
+  authors: "Chang JB, Kim YH, Thompson E, No YH, Kim NH, Arrieta J, Manfrinato VR, Keating AE, Berggren KK"
+  journal: "Small"
+  year: 2016
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/smll.201502419"
+  pubmed_link: "https://pubmed.ncbi.nlm.nih.gov/26799936/"
+  biorxiv_link: ""
+
+- title: "Selective peptide inhibitors of antiapoptotic cellular and viral Bcl-2 proteins lead to cytochrome c release during latent Kaposi's sarcoma-associated herpesvirus infection"
+  authors: "Burrer CM, Foight GW, Keating AE, Chan GC"
+  journal: "Virus Res"
+  year: 2016
+  journal_link: "https://www.sciencedirect.com/science/article/abs/pii/S0168170215300861?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4792251/"
+  biorxiv_link: ""
+
+- title: "Generating High-Accuracy Peptide-Binding Data in High Throughput with Yeast Surface Display and SORTCERY"
+  authors: "Reich LL, Dutta S, Keating AE"
+  journal: "Methods Mol Biol"
+  year: 2016
+  journal_link: "https://link.springer.com/protocol/10.1007/978-1-4939-3569-7_14"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4912380/"
+  biorxiv_link: ""
+
+- title: "A Barcoding Strategy Enabling Higher-Throughput Library Screening by Microscopy"
+  authors: "Chen R, Rishi HS, Potapov V, Yamada MR, Yeh VJ, Chow T, Cheung CL, Jones AT, Johnson TD, Keating AE, DeLoache WC, Dueber JE"
+  journal: "ACS Synth Biol"
+  year: 2015
+  journal_link: "https://pubs.acs.org/doi/10.1021/acssynbio.5b00060"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4654675/"
+  biorxiv_link: ""
+
+- title: "Locating Herpesvirus Bcl-2 Homologs in the Specificity Landscape of Anti-Apoptotic Bcl-2 Proteins"
+  authors: "Foight GW, Keating AE"
+  journal: "J Mol Biol"
+  year: 2015
+  journal_link: "https://www.sciencedirect.com/science/article/abs/pii/S0022283615002995?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4520770/"
+  biorxiv_link: ""
+
+- title: "SORTCERY - A High-Throughput Method to Affinity Rank Peptide Ligands"
+  authors: "Reich LL, Dutta S, Keating AE"
+  journal: "J Mol Biol"
+  year: 2015
+  journal_link: "https://www.sciencedirect.com/science/article/abs/pii/S0022283614005282?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4394037/"
+  biorxiv_link: ""
+
+- title: "Potent and specific peptide inhibitors of human pro-survival protein Bcl-xL"
+  authors: "Dutta S, Ryan J, Chen TS, Kougentakis C, Letai A, Keating AE"
+  journal: "J Mol Biol"
+  year: 2015
+  journal_link: "https://www.sciencedirect.com/science/article/abs/pii/S0022283614005853?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4357494/"
+  biorxiv_link: ""
+
+- title: "Data-driven prediction and design of bZIP coiled-coil interactions"
+  authors: "Potapov V, Kaplan JB, Keating AE"
+  journal: "PLoS Comput Biol"
+  year: 2015
+  journal_link: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004046"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4335062/"
+  biorxiv_link: ""
+
+- title: "Selectivity in subunit composition of Ena/VASP tetramers"
+  authors: "Riquelme DN, Meyer AS, Barzik M, Keating A, Gertler FB"
+  journal: "Biosci Rep"
+  year: 2015
+  journal_link: "https://portlandpress.com/bioscirep/article/35/5/e00246/56278/Selectivity-in-subunit-composition-of-Ena-VASP"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4721544/"
+  biorxiv_link: ""
+
+- title: "A set of computationally designed orthogonal antiparallel homodimers that expands the synthetic coiled-coil toolkit"
+  authors: "Negron C, Keating AE"
+  journal: "J Am Chem Soc"
+  year: 2014
+  journal_link: "https://pubs.acs.org/doi/10.1021/ja507847t"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4277747/"
+  biorxiv_link: ""
+
+- title: "Designed BH3 peptides with high affinity and specificity for targeting Mcl-1 in cells"
+  authors: "Foight GW, Ryan JA, Gulla SV, Letai A, Keating AE"
+  journal: "ACS Chem Biol"
+  year: 2014
+  journal_link: "https://pubs.acs.org/doi/10.1021/cb500340w"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4168798/"
+  biorxiv_link: ""
+
+- title: "Increasing the affinity of selective bZIP-binding peptides through surface residue redesign"
+  authors: "Kaplan JB, Reinke AW, Keating AE"
+  journal: "Protein Sci"
+  year: 2014
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.2477"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4088978/"
+  biorxiv_link: ""
+
+- title: "Genome-wide prediction and validation of peptides that bind human prosurvival Bcl-2 proteins"
+  authors: "DeBartolo J, Taipale M, Keating AE"
+  journal: "PLoS Comput Biol"
+  year: 2014
+  journal_link: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003693"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4072508/"
+  biorxiv_link: ""
+
+- title: "Networks of bZIP protein-protein interactions diversified over a billion years of evolution"
+  authors: "Reinke AW, Baek J, Ashenberg O, Keating AE"
+  journal: "Science"
+  year: 2013
+  journal_link: "https://www.science.org/doi/10.1126/science.1233465"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4115154/"
+  biorxiv_link: ""
+
+- title: "Peptide ligands for pro-survival protein Bfl-1 from computationally guided library screening"
+  authors: "Dutta S, Chen TS, Keating AE"
+  journal: "ACS Chem Biol"
+  year: 2013
+  journal_link: "https://pubs.acs.org/doi/10.1021/cb300679a"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3631442/"
+  biorxiv_link: ""
+
+- title: "Helix bundle loops determine whether histidine kinases autophosphorylate in cis or in trans"
+  authors: "Ashenberg O, Keating AE, Laub MT"
+  journal: "J Mol Biol"
+  year: 2013
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283613000144?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3636764/"
+  biorxiv_link: ""
+
+- title: "Structure-based redesign of the binding specificity of anti-apoptotic Bcl-x(L)"
+  authors: "Chen TS, Palacios H, Keating AE"
+  journal: "J Mol Biol"
+  year: 2013
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283612008819?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3557458/"
+  biorxiv_link: ""
+
+- title: "Multistate protein design using CLEVER and CLASSY"
+  authors: "Negron C, Keating AE"
+  journal: "Methods Enzymol"
+  year: 2013
+  journal_link: "https://www.sciencedirect.com/science/chapter/bookseries/pii/B9780123942920000084?via%3Dihub"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "bZIP transcription factors affecting secondary metabolism, sexual development and stress responses in Aspergillus nidulans"
+  authors: "Yin WB, Reinke AW, Szilagyi M, Emri T, Chiang YM, Keating AE, Pocsi I, Wang CC, Keller NP"
+  journal: "Microbiology"
+  year: 2013
+  journal_link: "https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.063370-0#tab2"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3542729/"
+  biorxiv_link: ""
+
+- title: "Predictive Bcl-2 family binding models rooted in experiment or structure"
+  authors: "DeBartolo J, Dutta S, Reich L, Keating AE"
+  journal: "J Mol Biol"
+  year: 2012
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S002228361200407X?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3600422/"
+  biorxiv_link: ""
+
+- title: "In silico and in vitro elucidation of BH3 binding specificity toward Bcl-2"
+  authors: "London N, Gulla S, Keating AE, Schueler-Furman O"
+  journal: "Biochemistry"
+  year: 2012
+  journal_link: "https://pubs.acs.org/doi/10.1021/bi3003567"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3711574/"
+  biorxiv_link: ""
+
+- title: "Designing specific protein-protein interactions using computation, experimental library screening, or integrated methods"
+  authors: "Chen TS, Keating AE"
+  journal: "Protein Sci"
+  year: 2012
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.2096"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3403433/"
+  biorxiv_link: ""
+
+- title: "SYNZIP protein interaction toolbox: in vitro and in vivo specifications of heterospecific coiled-coil interaction domains"
+  authors: "Thompson KE, Bashor CJ, Lim WA, Keating AE"
+  journal: "ACS Synth Biol"
+  year: 2012
+  journal_link: "https://pubs.acs.org/doi/10.1021/sb200015u"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3339576/"
+  biorxiv_link: ""
+
+- title: "Determinants of homodimerization specificity in histidine kinases"
+  authors: "Ashenberg O, Rozen-Gagnon K, Laub MT, Keating AE"
+  journal: "J Mol Biol"
+  year: 2011
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283611008783?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3210482/"
+  biorxiv_link: ""
+
+- title: "Design of peptide inhibitors that bind the bZIP domain of Epstein-Barr virus protein BZLF1"
+  authors: "Chen TS, Reinke AW, Keating AE"
+  journal: "J Mol Biol"
+  year: 2011
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283611002166?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3087387/"
+  biorxiv_link: ""
+
+- title: "Protein binding specificity versus promiscuity"
+  authors: "Schreiber G, Keating AE"
+  journal: "Curr Opin Struct Biol"
+  year: 2011
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0959440X1000165X?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3053118/"
+  biorxiv_link: ""
+
+- title: "Multicoil2: predicting coiled coils and their oligomerization states from sequence in the twilight zone"
+  authors: "Trigg J, Gutwin K, Keating AE, Berger B"
+  journal: "PLoS One"
+  year: 2011
+  journal_link: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0023519"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3162000/"
+  biorxiv_link: ""
+
+- title: "Identifying and reducing error in cluster-expansion approximations of protein energies"
+  authors: "Hahn S, Ashenberg O, Grigoryan G, Keating AE"
+  journal: "J Comput Chem"
+  year: 2010
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/jcc.21585"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "The MCL-1 BH3 helix is an exclusive MCL-1 inhibitor and apoptosis sensitizer"
+  authors: "Stewart ML, Fire E, Keating AE, Walensky LD"
+  journal: "Nat Chem Biol"
+  year: 2010
+  journal_link: "https://www.nature.com/articles/nchembio.391"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3033224/"
+  biorxiv_link: ""
+
+- title: "Determinants of BH3 binding specificity for Mcl-1 versus Bcl-xL"
+  authors: "Dutta S, Gulla S, Chen TS, Fire E, Grant RA, Keating AE"
+  journal: "J Mol Biol"
+  year: 2010
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283610003335?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2896288/"
+  biorxiv_link: ""
+
+- title: "A synthetic coiled-coil interactome provides heterospecific modules for molecular engineering"
+  authors: "Reinke AW, Grant RA, Keating AE"
+  journal: "J Am Chem Soc"
+  year: 2010
+  journal_link: "https://pubs.acs.org/doi/10.1021/ja907617a"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2940225/"
+  biorxiv_link: ""
+
+- title: "Specific coiled-coil interactions contribute to a global model of the structure of the spindle pole body"
+  authors: "Zizlsperger N, Keating AE"
+  journal: "J Struct Biol"
+  year: 2010
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S1047847710000341?via%3Dihub"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Identification of bZIP interaction partners of viral proteins HBZ, MEQ, BZLF1, and K-bZIP using coiled-coil arrays"
+  authors: "Reinke AW, Grigoryan G, Keating AE"
+  journal: "Biochemistry"
+  year: 2010
+  journal_link: "https://pubs.acs.org/doi/10.1021/bi902065k"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2841013/"
+  biorxiv_link: ""
+
+- title: "Mcl-1-Bim complexes accommodate surprising point mutations via minor structural changes"
+  authors: "Fire E, Gulla SV, Grant RA, Keating AE"
+  journal: "Protein Sci"
+  year: 2010
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/pro.329"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2866276/"
+  biorxiv_link: ""
+
+- title: "Cluster expansion models for flexible-backbone protein energetics"
+  authors: "Apgar JR, Hahn S, Grigoryan G, Keating AE"
+  journal: "J Comput Chem"
+  year: 2009
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/jcc.21249"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "X-ray vs. NMR structures as templates for computational protein design"
+  authors: "Schneider M, Fu X, Keating AE"
+  journal: "Proteins"
+  year: 2009
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/prot.22421"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2732408/"
+  biorxiv_link: ""
+
+- title: "A computationally guided protein-interaction screen uncovers coiled-coil interactions involved in vesicular trafficking"
+  authors: "Zhang H, Chen J, Wang Y, Peng L, Dong X, Lu Y, Keating AE, Jiang T"
+  journal: "J Mol Biol"
+  year: 2009
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283609008328?via%3Dihub"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Design of protein-interaction specificity gives selective bZIP-binding peptides"
+  authors: "Grigoryan G, Reinke AW, Keating AE"
+  journal: "Nature"
+  year: 2009
+  journal_link: "https://www.nature.com/articles/nature07885"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2748673/"
+  biorxiv_link: ""
+
+- title: "Analysis of coiled-coil interactions between core proteins of the spindle pole body"
+  authors: "Zizlsperger N, Malashkevich VN, Pillay S, Keating AE"
+  journal: "Biochemistry"
+  year: 2008
+  journal_link: "https://pubs.acs.org/doi/10.1021/bi801378z"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Predicting helix orientation for coiled-coil dimers"
+  authors: "Apgar JR, Gutwin KN, Keating AE"
+  journal: "Proteins"
+  year: 2008
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/prot.22118"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2562949/"
+  biorxiv_link: ""
+
+- title: "Structural specificity in coiled-coil interactions"
+  authors: "Grigoryan G, Keating AE"
+  journal: "Curr Opin Struct Biol"
+  year: 2008
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0959440X08000651?via%3Dihub"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2567808/"
+  biorxiv_link: ""
+
+- title: "Computing van der Waals energies in the context of the rotamer approximation"
+  authors: "Grigoryan G, Ochoa A, Keating AE"
+  journal: "Proteins"
+  year: 2007
+  journal_link: "https://onlinelibrary.wiley.com/doi/10.1002/prot.21470"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Modeling backbone flexibility to achieve sequence diversity: the design of novel alpha-helical ligands for Bcl-xL"
+  authors: "Fu X, Apgar JR, Keating AE"
+  journal: "J Mol Biol"
+  year: 2007
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283607005827?via%3Dihubhttps://pmc.ncbi.nlm.nih.gov/articles/PMC1479088/"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1994813/"
+  biorxiv_link: ""
+
+- title: "Ultra-fast evaluation of protein energies directly from sequence"
+  authors: "Grigoryan G, Zhou F, Lustig SR, Ceder G, Morgan D, Keating AE"
+  journal: "PLoS Comput Biol"
+  year: 2006
+  journal_link: "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0020063"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1479088/"
+  biorxiv_link: ""
+
+- title: "Structure-based prediction of bZIP partnering specificity"
+  authors: "Grigoryan G, Keating AE"
+  journal: "J Mol Biol"
+  year: 2006
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0022283605014233?via%3Dihub"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Paircoil2: improved prediction of coiled coils from sequence"
+  authors: "McDonnell AV, Jiang T, Keating AE, Berger B"
+  journal: "Bioinformatics"
+  year: 2006
+  journal_link: "https://academic.oup.com/bioinformatics/article/22/3/356/220410"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Orientation and oligomerization specificity of the Bcr coiled-coil oligomerization domain"
+  authors: "Taylor CM, Keating AE"
+  journal: "Biochemistry"
+  year: 2005
+  journal_link: "https://pubs.acs.org/doi/10.1021/bi051493t"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2526250/"
+  biorxiv_link: ""
+
+- title: "Coarse-graining protein energetics in sequence variables"
+  authors: "Zhou F, Grigoryan G, Lustig SR, Keating AE, Ceder G, Morgan D"
+  journal: "Phys Rev Lett"
+  year: 2005
+  journal_link: "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.95.148103"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "AVID: an integrative framework for discovering functional relationships among proteins"
+  authors: "Jiang T, Keating AE"
+  journal: "BMC Bioinformatics"
+  year: 2005
+  journal_link: "https://link.springer.com/article/10.1186/1471-2105-6-136"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC1177925/"
+  biorxiv_link: ""
+
+- title: "Design of a heterospecific, tetrameric, 21-residue miniprotein with mixed alpha/beta structure"
+  authors: "Ali MH, Taylor CM, Grigoryan G, Allen KN, Imperiali B, Keating AE"
+  journal: "Structure"
+  year: 2005
+  journal_link: "https://www.sciencedirect.com/science/article/pii/S0969212605000249"
+  pubmed_link: ""
+  biorxiv_link: ""
+
+- title: "Predicting specificity in bZIP coiled-coil protein interactions"
+  authors: "Fong JH, Keating AE, Singh M"
+  journal: "Genome Biol"
+  year: 2004
+  journal_link: "https://link.springer.com/article/10.1186/gb-2004-5-2-r11"
+  pubmed_link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC395749/"
+  biorxiv_link: ""
+
+- title: "Comprehensive identification of human bZIP interactions with coiled-coil arrays"
+  authors: "Newman JR, Keating AE"
+  journal: "Science"
+  year: 2003
+  journal_link: "https://www.science.org/doi/10.1126/science.1084648"
+  pubmed_link: ""
+  biorxiv_link: ""
