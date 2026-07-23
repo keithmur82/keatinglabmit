@@ -1,0 +1,141 @@
+---
+layout: default
+title: People
+---
+
+<div class="people-page">
+
+  <!-- PI -->
+  <div class="pi-section row align-items-start">
+    <div class="col-md-3 text-center">
+      <img src="{{ site.data.members.pi.image }}"
+           alt="{{ site.data.members.pi.name }}"
+           class="pi-photo">
+    </div>
+    <div class="col-md-9">
+      <h2>{{ site.data.members.pi.name }}</h2>
+      <h5 class="pi-title">{{ site.data.members.pi.title }}</h5>
+      <ul class="pi-credentials">
+        {% for line in site.data.members.pi.education %}
+          <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+      <div class="pi-links">
+        <a href="{{ site.data.members.pi.spotlight }}">Faculty Spotlight</a> ·
+        <a href="mailto:{{ site.data.members.pi.email }}">Email Amy</a> ·
+        <a href="{{ site.data.members.pi.cv }}">CV</a>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- PHD CANDIDATES -->
+  <h3 class="section-header">PhD Candidates</h3>
+
+  {% for member in site.data.members.grad_students %}
+  <div class="row member-row align-items-center">
+    <div class="col-md-3 member-photo-col text-center">
+      <img src="{{ member.image }}" alt="{{ member.name }}">
+      <h4 class="member-name">{{ member.name }}</h4>
+    </div>
+    <div class="col-md-5 member-bio-col">
+      <p>{{ member.bio }}</p>
+    </div>
+    <div class="col-md-4 text-center">
+      {% if member.structure %}
+        <img src="{{ member.structure }}"
+             alt="{{ member.name }} structure"
+             class="structure-img">
+      {% endif %}
+    </div>
+  </div>
+  <hr class="member-divider">
+  {% endfor %}
+
+  <!-- POSTDOCTORAL SCIENTISTS -->
+  <h3 class="section-header">Postdoctoral Scientists</h3>
+
+  {% for member in site.data.members.postdocs %}
+  <div class="row member-row align-items-center">
+    <div class="col-md-3 member-photo-col text-center">
+      <img src="{{ member.image }}" alt="{{ member.name }}">
+      <h4 class="member-name">{{ member.name }}</h4>
+    </div>
+    <div class="col-md-5 member-bio-col">
+      <p>{{ member.bio }}</p>
+    </div>
+    <div class="col-md-4 text-center">
+      {% if member.structure %}
+        <img src="{{ member.structure }}"
+             alt="{{ member.name }} structure"
+             class="structure-img">
+      {% endif %}
+    </div>
+  </div>
+  <hr class="member-divider">
+  {% endfor %}
+
+  <hr>
+
+ <!-- ALUMNI -->
+<h3 class="section-header">Lab Alumni</h3>
+
+<h5>Ph.D. Alumni</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.phd %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+
+<h5 class="mt-4">M.S. Alumni</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.ms %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+
+<h5 class="mt-4">Postdoctoral Scientists</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.postdoc %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+
+<h5 class="mt-4">Undergraduate Research (UROP)</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.urop %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+
+<h5 class="mt-4">MIT Summer Research Program (MSRP)</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.msrp %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+<p class="text-muted" style="font-size:0.8rem">
+  * Student who returned to the lab for a longer stay after the MSRP summer program
+</p>
+
+<h5 class="mt-4">HHMI/MIT Visiting Students</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.hhmi_mit %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+
+<h5 class="mt-4">Visiting Students</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.visiting %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
+
+<h5 class="mt-4">Technical Associates</h5>
+<ul class="alumni-list">
+  {% for person in site.data.members.alumni.technical_associate %}
+    <li>{{ person.name }}</li>
+  {% endfor %}
+</ul>
