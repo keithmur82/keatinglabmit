@@ -31,9 +31,9 @@ grad_students:
     bio: I am working on peptide binder prediction and design.
     image: /assets/img/members/haley-goodwin.jpg
   - name: Jessie Gan
+    bio: I am working on computational models for peptide binder design.
     image: /assets/img/members/jessie-guan.jpg
     structure: /assets/img/structures/jessie-structure.png
-    bio: I am working on peptide binder designs and modeling SLiM biophysics.
 postdocs:
   - name: Joel Sexton
     image: /assets/img/members/joel-sexton.jpg
