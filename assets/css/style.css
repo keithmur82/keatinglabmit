@@ -233,6 +233,7 @@ hr {
   background-image: url('/keatinglabmit/assets/img/heading-structure.png');
   background-size: cover;
   background-position: center;
+  background-color: white;
   height: 180px;
   position: relative;
 }
