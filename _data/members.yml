@@ -14,7 +14,7 @@ pi:
 grad_students:
   - name: Lindsey Guan
     image: /assets/img/members/lindsey-guan.jpg
-    structure: /assets/img/structures/lindsey-structure.sfg 
+    structure: /assets/img/structures/lindsey-structure.svg 
     bio: "I'm working on computational methods for designing highly target-selective peptide binders, and I'm interested in interpretable machine learning."
 
   - name: Ellen Irving
