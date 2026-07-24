@@ -28,8 +28,8 @@ grad_students:
     structure: /assets/img/structures/foster-structure.svg
     bio: I develop machine learning models for protein design. I work on models that learn sequence-energy landscapes conditioned on protein structure and use the learned energy landscapes to design novel protein sequences and predict the effects of mutations.
   - name: Haley Goodwin
+    bio: I am working on peptide binder prediction and design.
     image: /assets/img/members/haley-goodwin.jpg
-    bio: I am working on SLiM prediction and design.
   - name: Jessie Gan
     image: /assets/img/members/jessie-guan.jpg
     structure: /assets/img/structures/jessie-structure.png
