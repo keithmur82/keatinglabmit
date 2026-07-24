@@ -214,9 +214,9 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Site Banner (all pages) ─────────────────────── */
 .site-banner {
   background-image: url('/keatinglabmit/assets/img/heading-structure.png');
-  background-size: 100%;
+  background-size: 95%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
   background-color: #fff;
   height: 180px;
   position: relative;
