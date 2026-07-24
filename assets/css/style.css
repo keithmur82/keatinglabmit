@@ -214,9 +214,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Site Banner (all pages) ─────────────────────── */
 .site-banner {
   background-image: url('/keatinglabmit/assets/img/heading-structure.png');
-  background-size: 100% auto;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
-  background-color: white;
+  background-color: #fff;
   height: 180px;
   position: relative;
 }
@@ -226,7 +227,8 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: transparent;
   display: flex;
-  align-items: center;
+  align-items: flex-start;   /* was center → now top */
+  padding-top: 1.25rem;
 }
 
 .site-banner-title {
@@ -235,6 +237,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   margin: 0;
   letter-spacing: 0.03em;
+}
+
 }
 
 /* ── Carousel ────────────────────────────────────── */
