@@ -259,13 +259,21 @@ hr {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  background-color: white;
+  background-color: white !important;
+}
+
+.carousel-inner {
+  background-color: white !important;
+}
+
+.carousel-item {
+  background-color: white !important;
 }
 
 .carousel-img {
   height: 420px;
   object-fit: contain;
-  background-color: white;
+  background-color: white !important;
 }
 
 .carousel-control-prev,
@@ -276,7 +284,6 @@ hr {
 .carousel-indicators [data-bs-target] {
   background-color: var(--mit-red);
 }
-
 /* ── Home Intro ──────────────────────────────────── */
 .home-intro {
   margin-top: 1rem;
