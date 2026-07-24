@@ -305,3 +305,25 @@ h1, h2, h3, h4, h5, h6 {
 .home-links li:last-child {
   border-bottom: none;
 }
+
+/* ── Home Row ────────────────────────────────────── */
+.home-row {
+  gap: 0;
+}
+
+.home-intro {
+  padding-left: 2rem;
+}
+
+.home-intro h2 {
+  color: var(--mit-red);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.home-intro p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}

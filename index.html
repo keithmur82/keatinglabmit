@@ -3,83 +3,88 @@ layout: default
 title: Home
 ---
 
-<!-- ── STRUCTURE CAROUSEL ───────────────────────── -->
-<div id="structureCarousel" class="carousel slide mb-5"
-     data-bs-ride="carousel" data-bs-interval="4000">
+<div class="row align-items-center home-row">
 
-  <!-- Slides -->
-  <div class="carousel-inner">
+  <!-- ── CAROUSEL ─────────────────────────────────── -->
+  <div class="col-md-7">
+    <div id="structureCarousel" class="carousel slide"
+         data-bs-ride="carousel" data-bs-interval="4000">
 
-    <div class="carousel-item active">
-      <img src="{{ '/assets/img/carousel/cora-structure.png' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <img src="{{ '/assets/img/carousel/cora-structure.png' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/ellen-structure.png' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/foster-structure.svg' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/jackson-structure.png' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/jessie-structure.png' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/joel-structure.png' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/lindsey-structure.svg' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{{ '/assets/img/carousel/sergei-structure.png' | relative_url }}"
+               class="d-block w-100 carousel-img"
+               alt="Protein structure">
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button"
+              data-bs-target="#structureCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button"
+              data-bs-target="#structureCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
     </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/ellen-structure.png' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/foster-structure.svg' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/jackson-structure.png' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/jessie-structure.png' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/joel-structure.png' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/lindsey-structure.svg' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
-    <div class="carousel-item">
-      <img src="{{ '/assets/img/carousel/sergei-structure.png' | relative_url }}"
-           class="d-block w-100 carousel-img"
-           alt="Protein structure">
-    </div>
-
   </div>
 
-  <!-- Controls -->
-  <button class="carousel-control-prev" type="button"
-          data-bs-target="#structureCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button"
-          data-bs-target="#structureCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
+  <!-- ── INTRO TEXT ────────────────────────────────── -->
+  <div class="col-md-5 home-intro">
+    <h2>How do proteins recognize the right partners among thousands of possibilities?</h2>
+    <p>
+      We combine structural biology, computational design, and machine learning
+      to answer this question — and to design peptide inhibitors targeting
+      cancer proteins, autophagy regulators, and bacterial defense systems.
+      Our work bridges fundamental molecular recognition to biomedical
+      applications.
+    </p>
+  </div>
 
-</div>
-
-<!-- ── INTRO TEXT ────────────────────────────────── -->
-<div class="home-intro">
-  <h2>How do proteins recognize the right partners among thousands of possibilities?</h2>
-  <p>
-    We combine structural biology, computational design, and machine learning
-    to answer this question — and to design peptide inhibitors targeting
-    cancer proteins, autophagy regulators, and bacterial defense systems.
-    Our work bridges fundamental molecular recognition to biomedical
-    applications.
-  </p>
 </div>
