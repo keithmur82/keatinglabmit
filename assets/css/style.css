@@ -327,3 +327,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   line-height: 1.8;
 }
+
+/* ── Resource Buttons ────────────────────────────── */
+.resource-btn {
+  font-size: 0.82rem;
+  color: white;
+  background-color: var(--mit-red);
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.resource-btn:hover {
+  background-color: #7a1728;
+  color: white;
+  text-decoration: none;
+}
