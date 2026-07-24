@@ -3,60 +3,50 @@ pi:
   title: Professor of Biology and Biological Engineering
   image: /assets/img/members/amy-keating.jpg
   education:
-    - "B.A. Harvard (physics) 1992"
-    - "Ph.D. UCLA (physical organic chemistry) 1998"
-    - "Postdoctoral training with Peter S. Kim and Bruce Tidor, MIT"
-    - "Joined MIT faculty in 2002"
+    - B.A. Harvard (physics) 1992
+    - Ph.D. UCLA (physical organic chemistry) 1998
+    - Postdoctoral training with Peter S. Kim and Bruce Tidor, MIT
+    - Joined MIT faculty in 2002
   email: keating@mit.edu
   cv: /assets/pdf/keating-cv.pdf
   spotlight: https://biology.mit.edu/profile/amy-e-keating/
-
 grad_students:
   - name: Lindsey Guan
     image: /assets/img/members/lindsey-guan.jpg
-    structure: /assets/img/structures/lindsey-structure.svg 
-    bio: "I'm working on computational methods for designing highly target-selective peptide binders, and I'm interested in interpretable machine learning."
-
+    structure: /assets/img/structures/lindsey-structure.svg
+    bio: I'm working on computational methods for designing highly target-selective peptide binders, and I'm interested in interpretable machine learning.
   - name: Ellen Irving
+    bio: I'm working on short linear motif binding focusing on the activation of the E3 ubiquitin ligase Itch.
     image: /assets/img/members/ellen-irving.jpg
     structure: /assets/img/structures/ellen-structure.png
-    bio: "I'm working on multivalency in the context of short linear motif binding focusing on the activation of the E3 ubiquitin ligase Itch."
-
   - name: Cora Wendlandt
     image: /assets/img/members/cora-wendlandt.jpg
     structure: /assets/img/structures/cora-structure.png
-    bio: "Cyclotides are small, cyclic plant proteins renowned for their exceptional stability against heat, pH, and proteolysis. My project aims to enhance cyclotide yeast surface display through integrated computational tools to streamline binder discovery, affinity maturation, and developability optimization."
-
+    bio: Cyclotides are small, cyclic plant proteins renowned for their exceptional stability against heat, pH, and proteolysis. My project aims to enhance cyclotide yeast surface display through integrated computational tools to streamline binder discovery, affinity maturation, and developability optimization.
   - name: Foster Birnbaum
     image: /assets/img/members/foster-birnbaum.jpg
-    structure: /assets/img/structures/foster-structure.svg 
-    bio: "I develop machine learning models for protein design. I work on models that learn sequence-energy landscapes conditioned on protein structure and use the learned energy landscapes to design novel protein sequences and predict the effects of mutations."
-
+    structure: /assets/img/structures/foster-structure.svg
+    bio: I develop machine learning models for protein design. I work on models that learn sequence-energy landscapes conditioned on protein structure and use the learned energy landscapes to design novel protein sequences and predict the effects of mutations.
   - name: Haley Goodwin
+    bio: I am working on peptide binder prediction and design.
     image: /assets/img/members/haley-goodwin.jpg
-    bio: "I am working on SLiM prediction and design."
-
   - name: Jessie Gan
+    bio: I am working on computational models for peptide binder design.
     image: /assets/img/members/jessie-guan.jpg
     structure: /assets/img/structures/jessie-structure.png
-    bio: "I am working on peptide binder designs and modeling SLiM biophysics."
-
 postdocs:
   - name: Joel Sexton
     image: /assets/img/members/joel-sexton.jpg
     structure: /assets/img/structures/joel-structure.png
-    bio: "I study domain peptide-peptide interactions using photoactivatable cross linkers that label binding site motifs."
-
+    bio: I study domain peptide-peptide interactions using photoactivatable cross linkers that label binding site motifs.
   - name: Jackson Halpin
     image: /assets/img/members/jackson-halpin.jpg
     structure: /assets/img/structures/jackson-structure.png
-    bio: "I build computational peptide-design approaches to generate inhibitors of challenging protein–protein interfaces. A key theme in my research is engineering conformationally pre-organized peptides that bind more tightly to target proteins."
-
+    bio: I build computational peptide-design approaches to generate inhibitors of challenging protein–protein interfaces. A key theme in my research is engineering conformationally pre-organized peptides that bind more tightly to target proteins.
   - name: Sergei Kotelnikov
     image: /assets/img/members/sergei-kotelnikov.jpg
     structure: /assets/img/structures/sergei-structure.png
-    bio: "I develop computational methods for structural modeling of proteins and their interactions. In particular, I aim to enrich methodology with machine learning models that incorporate prior physical and geometric knowledge of the problem."
-
+    bio: I develop computational methods for structural modeling of proteins and their interactions. In particular, I aim to enrich methodology with machine learning models that incorporate prior physical and geometric knowledge of the problem.
 alumni:
   phd:
     - name: Jen Kosmatka, Ph.D.
@@ -132,9 +122,9 @@ alumni:
   msrp:
     - name: Vincent Artuso
     - name: Ellen Irving
-    - name: "Alejandra Ramos*"
-    - name: "Meucci Ilunga*"
-    - name: "Hana Flores*"
+    - name: Alejandra Ramos*
+    - name: Meucci Ilunga*
+    - name: Hana Flores*
     - name: Nomongo Dorjsuren
     - name: Hector Nieves-Rosado
     - name: Luis Martinez
