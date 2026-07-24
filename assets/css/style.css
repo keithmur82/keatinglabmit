@@ -228,11 +228,12 @@ hr {
   font-weight: 700;
 }
 
-/* ── Site Banner (all pages) ─────────────────────── */
+//* ── Site Banner (all pages) ─────────────────────── */
 .site-banner {
   background-image: url('/keatinglabmit/assets/img/heading-structure.png');
   background-size: cover;
   background-position: center;
+  background-color: white;
   height: 180px;
   position: relative;
 }
@@ -240,23 +241,16 @@ hr {
 .site-banner-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(163, 31, 52, 0.72);
   display: flex;
   align-items: center;
 }
 
 .site-banner-title {
-  color: #fff;
+  color: #000;
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: 0.03em;
-}
-
-.site-banner-subtitle {
-  color: rgba(255,255,255,0.85);
-  font-size: 0.95rem;
-  margin: 0.25rem 0 0 0;
 }
 
 /* ── Carousel ────────────────────────────────────── */
