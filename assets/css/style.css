@@ -228,12 +228,11 @@ hr {
   font-weight: 700;
 }
 
-//* ── Site Banner (all pages) ─────────────────────── */
+/* ── Site Banner (all pages) ─────────────────────── */
 .site-banner {
   background-image: url('/keatinglabmit/assets/img/heading-structure.png');
   background-size: cover;
   background-position: center;
-  background-color: white;
   height: 180px;
   position: relative;
 }
@@ -241,9 +240,9 @@ hr {
 .site-banner-overlay {
   position: absolute;
   inset: 0;
+  background: transparent;
   display: flex;
   align-items: center;
-  background: none;
 }
 
 .site-banner-title {
