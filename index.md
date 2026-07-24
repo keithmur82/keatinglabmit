@@ -30,52 +30,52 @@ title: Home
   <!-- Slides -->
   <div class="carousel-inner">
 
-    <div class="carousel-item active">
-      <img src="/assets/img/carousel/cora-structure.png"
-           class="d-block w-100 carousel-img"
-           alt="Cora Wendlandt protein structure">
+    <div class=“carousel-item active”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/cora-structure.png”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/ellen-structure.png"
-           class="d-block w-100 carousel-img"
-           alt="Ellen Irving protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/ellen-structure.png”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/foster-structure.svg"
-           class="d-block w-100 carousel-img"
-           alt="Foster Birnbaum protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/foster-structure.svg”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/jackson-structure.png"
-           class="d-block w-100 carousel-img"
-           alt="Jackson Halpin protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/jackson-structure.png”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/jessie-structure.png"
-           class="d-block w-100 carousel-img"
-           alt="Jessie Guan protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/jessie-structure.png”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/joel-structure.png"
-           class="d-block w-100 carousel-img"
-           alt="Joel Sexton protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/joel-structure.png”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/lindsey-structure.svg"
-           class="d-block w-100 carousel-img"
-           alt="Lindsey Guan protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/lindsey-structure.svg”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
-    <div class="carousel-item">
-      <img src="/assets/img/carousel/sergei-structure.png"
-           class="d-block w-100 carousel-img"
-           alt="Sergei Kotelnikov protein structure">
+    <div class=“carousel-item”>
+      <img src=“{{ site.baseurl }}/assets/img/carousel/sergei-structure.png”
+           class=“d-block w-100 carousel-img”
+           alt=“Protein structure”>
     </div>
 
   </div>
