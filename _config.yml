@@ -1,6 +1,6 @@
 title: Keating Lab
 url: "https://keithmur82.github.io"
-baseurl: "/keatinglabmit"
+baseurl: "/keatinglabmit/"
 
 markdown: kramdown
 permalink: pretty
