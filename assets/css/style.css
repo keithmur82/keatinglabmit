@@ -231,7 +231,7 @@ hr {
 /* ── Site Banner (all pages) ─────────────────────── */
 .site-banner {
   background-image: url('/keatinglabmit/assets/img/heading-structure.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-color: white;
   height: 180px;
