@@ -12,13 +12,8 @@
 
   <style>
     :root { --mit-red: #A31F34; }
-
     body { background: #f5f5f5; font-family: system-ui, sans-serif; }
-
-    /* Navbar */
     .navbar { background-color: var(--mit-red); }
-
-    /* Setup box */
     .setup-box {
       max-width: 480px;
       margin: 5rem auto;
@@ -28,8 +23,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
     .setup-logo { color: var(--mit-red); font-size: 1.4rem; font-weight: 700; }
-
-    /* Cards */
     .section-card {
       background: white;
       border-radius: 8px;
@@ -37,13 +30,7 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    .section-title {
-      color: var(--mit-red);
-      font-weight: 700;
-      margin: 0;
-    }
-
-    /* Member rows */
+    .section-title { color: var(--mit-red); font-weight: 700; margin: 0; }
     .member-row {
       display: flex;
       align-items: center;
@@ -53,15 +40,13 @@
     }
     .member-row:last-child { border-bottom: none; }
     .member-thumb {
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       object-fit: cover;
       border-radius: 4px;
       flex-shrink: 0;
     }
     .member-placeholder {
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       background: #e8e8e8;
       border-radius: 4px;
       flex-shrink: 0;
@@ -74,15 +59,10 @@
     .member-info { flex: 1; min-width: 0; }
     .member-info strong { display: block; font-size: 0.95rem; }
     .member-info span {
-      font-size: 0.82rem;
-      color: #666;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: block;
+      font-size: 0.82rem; color: #666;
+      white-space: nowrap; overflow: hidden;
+      text-overflow: ellipsis; display: block;
     }
-
-    /* Publications */
     .pub-row {
       padding: 0.75rem 0;
       border-bottom: 1px solid #f0f0f0;
@@ -91,80 +71,63 @@
     .pub-row strong { font-size: 0.95rem; }
     .pub-row .meta { font-size: 0.82rem; color: #666; }
     .pub-row .pub-link-pills {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.3rem;
+      display: flex; gap: 0.5rem;
+      flex-wrap: wrap; margin-top: 0.3rem;
     }
     .pub-link-pills a {
-      font-size: 0.75rem;
-      color: white;
+      font-size: 0.75rem; color: white;
       background-color: #A31F34;
-      padding: 1px 8px;
-      border-radius: 4px;
+      padding: 1px 8px; border-radius: 4px;
       text-decoration: none;
     }
     .pub-link-pills a:hover { background-color: #7a1728; }
-
-    /* Alumni tags */
     .alumni-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #f0f0f0;
-      border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 0.82rem;
-      margin: 2px;
+      display: inline-flex; align-items: center;
+      gap: 4px; background: #f0f0f0;
+      border-radius: 4px; padding: 2px 8px;
+      font-size: 0.82rem; margin: 2px;
     }
     .alumni-tag button {
-      background: none;
-      border: none;
-      padding: 0;
-      font-size: 0.7rem;
-      color: #999;
-      cursor: pointer;
-      line-height: 1;
+      background: none; border: none;
+      padding: 0; font-size: 0.7rem;
+      color: #999; cursor: pointer; line-height: 1;
     }
     .alumni-tag button:hover { color: #c00; }
-
-    /* Buttons */
     .btn-primary { background-color: var(--mit-red); border-color: var(--mit-red); }
     .btn-primary:hover { background-color: #7a1728; border-color: #7a1728; }
     .btn-primary:focus { background-color: var(--mit-red); border-color: var(--mit-red); }
-
-    /* Modal header */
-    .modal-header-red {
-      background-color: var(--mit-red);
-      color: white;
-    }
-
-    /* Tabs */
+    .modal-header-red { background-color: var(--mit-red); color: white; }
     .nav-tabs .nav-link { color: #555; }
     .nav-tabs .nav-link.active {
-      color: var(--mit-red);
-      font-weight: 600;
+      color: var(--mit-red); font-weight: 600;
       border-bottom: 2px solid var(--mit-red);
     }
-
-    /* Loading overlay */
     .loading-overlay {
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: rgba(255,255,255,0.85);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       z-index: 9999;
     }
-
-    /* Empty state */
     .empty-state {
-      text-align: center;
-      padding: 2rem;
-      color: #aaa;
+      text-align: center; padding: 2rem;
+      color: #aaa; font-size: 0.9rem;
+    }
+    .alumni-category-btn {
+      display: block; width: 100%;
+      text-align: left; padding: 0.6rem 1rem;
+      margin-bottom: 0.4rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
       font-size: 0.9rem;
+      transition: all 0.15s;
+    }
+    .alumni-category-btn:hover {
+      background: var(--mit-red);
+      color: white;
+      border-color: var(--mit-red);
     }
   </style>
 </head>
@@ -184,7 +147,7 @@
     <p class="text-muted mb-4" style="font-size:0.88rem">
       Sign in to add people, update research descriptions, or add publications.
     </p>
-    <div id="setupError" class="alert alert-danger py-2" 
+    <div id="setupError" class="alert alert-danger py-2"
          style="display:none;font-size:0.88rem"></div>
     <div class="mb-3">
       <label class="form-label fw-semibold">Access Code</label>
@@ -212,10 +175,8 @@
 
   <div class="container py-4" style="max-width:860px">
 
-    <!-- Status banner -->
     <div id="statusAlert" class="alert mb-3" style="display:none"></div>
 
-    <!-- Tabs -->
     <ul class="nav nav-tabs mb-4">
       <li class="nav-item">
         <button class="nav-link active" id="tab-btn-people"
@@ -234,7 +195,6 @@
     <!-- ── PEOPLE TAB ───────────────────────────────── -->
     <div id="tab-people">
 
-      <!-- PhD Candidates -->
       <div class="section-card">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h5 class="section-title">PhD Candidates</h5>
@@ -246,7 +206,6 @@
         <div id="list-grad_students"></div>
       </div>
 
-      <!-- Postdocs -->
       <div class="section-card">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h5 class="section-title">Postdoctoral Scientists</h5>
@@ -258,7 +217,6 @@
         <div id="list-postdocs"></div>
       </div>
 
-      <!-- Alumni -->
       <div class="section-card">
         <h5 class="section-title mb-3">Alumni</h5>
         <div id="alumni-section"></div>
@@ -297,7 +255,6 @@
       <div class="modal-body">
         <input type="hidden" id="m-edit-index">
         <input type="hidden" id="m-edit-group">
-
         <div class="mb-3">
           <label class="form-label fw-semibold">
             Full Name <span class="text-danger">*</span>
@@ -305,7 +262,6 @@
           <input type="text" class="form-control" id="m-name"
                  placeholder="e.g. Jane Smith">
         </div>
-
         <div class="mb-3">
           <label class="form-label fw-semibold">
             Research Description <span class="text-danger">*</span>
@@ -314,7 +270,6 @@
                     placeholder="A few sentences about their research focus...">
           </textarea>
         </div>
-
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label fw-semibold">Photo</label>
@@ -337,7 +292,6 @@
                         object-fit:contain;border-radius:4px;margin-top:8px">
           </div>
         </div>
-
         <div id="m-error" class="alert alert-danger py-2 mt-1"
              style="display:none;font-size:0.88rem"></div>
       </div>
@@ -347,6 +301,62 @@
         <button type="button" class="btn btn-primary" onclick="saveMember()">
           Save Changes
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── MOVE TO ALUMNI MODAL ───────────────────────── -->
+<div class="modal fade" id="alumniModal" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header modal-header-red">
+        <h5 class="modal-title">Move to Alumni</h5>
+        <button type="button" class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-3" style="font-size:0.9rem">
+          Select the alumni category for
+          <strong id="alumni-member-name"></strong>:
+        </p>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('phd')">
+          Ph.D. Alumni
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('ms')">
+          M.S. Alumni
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('postdoc')">
+          Postdoctoral Alumni
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('urop')">
+          UROP
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('msrp')">
+          MSRP
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('hhmi_mit')">
+          HHMI/MIT
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('visiting')">
+          Visiting Student
+        </button>
+        <button class="alumni-category-btn"
+                onclick="confirmMoveToAlumni('technical_associate')">
+          Technical Associate
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-sm"
+                data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
@@ -363,7 +373,6 @@
                 data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-
         <div class="mb-3">
           <label class="form-label fw-semibold">
             Paper Title <span class="text-danger">*</span>
@@ -371,7 +380,6 @@
           <input type="text" class="form-control" id="p-title"
                  placeholder="Full title of the paper">
         </div>
-
         <div class="mb-3">
           <label class="form-label fw-semibold">
             Authors <span class="text-danger">*</span>
@@ -379,7 +387,6 @@
           <input type="text" class="form-control" id="p-authors"
                  placeholder="e.g. Smith J, Jones A, Keating AE">
         </div>
-
         <div class="row">
           <div class="col-8 mb-3">
             <label class="form-label fw-semibold">
@@ -396,28 +403,24 @@
                    min="1990" max="2035">
           </div>
         </div>
-
         <div class="mb-3">
           <label class="form-label fw-semibold">Journal Link</label>
           <input type="text" class="form-control" id="p-journal-link"
                  placeholder="https://www.nature.com/articles/...">
           <div class="form-text">Link to the paper on the journal website</div>
         </div>
-
         <div class="mb-3">
           <label class="form-label fw-semibold">PubMed Central Link</label>
           <input type="text" class="form-control" id="p-pubmed-link"
                  placeholder="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC...">
           <div class="form-text">Leave blank if not available</div>
         </div>
-
         <div class="mb-3">
           <label class="form-label fw-semibold">bioRxiv Link</label>
           <input type="text" class="form-control" id="p-biorxiv-link"
                  placeholder="https://www.biorxiv.org/content/...">
           <div class="form-text">Leave blank if no preprint</div>
         </div>
-
         <div id="p-error" class="alert alert-danger py-2"
              style="display:none;font-size:0.88rem"></div>
       </div>
@@ -469,21 +472,21 @@ const STORE_KEY = 'keatinglab_admin_token';
 const RAW_BASE  = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main`;
 const API_BASE  = `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
 
-// ── TOKEN ─────────────────────────────────────────────
 const getToken   = () => localStorage.getItem(STORE_KEY) || '';
 const saveToken  = t  => localStorage.setItem(STORE_KEY, t);
 const clearToken = () => localStorage.removeItem(STORE_KEY);
 
-function signOut() {
-  clearToken();
-  location.reload();
-}
+function signOut() { clearToken(); location.reload(); }
 
 // ── STATE ─────────────────────────────────────────────
 let membersData = null;
 let membersSHA  = null;
 let papersData  = null;
 let papersSHA   = null;
+
+// ── Alumni move state ─────────────────────────────────
+let _alumniGroup = null;
+let _alumniIndex = null;
 
 // ── GITHUB API ────────────────────────────────────────
 async function ghGet(path) {
@@ -544,23 +547,23 @@ async function loadData() {
   try {
     const [mf, pf] = await Promise.all([
       ghGet('_data/members.yml'),
-      ghGet('_data/papers.yml')
+      ghGet('_data/publications.yml')
     ]);
     membersData = jsyaml.load(decodeGH(mf.content));
     membersSHA  = mf.sha;
     papersData  = jsyaml.load(decodeGH(pf.content)) || [];
     papersSHA   = pf.sha;
 
-    membersData.grad_students        = membersData.grad_students        || [];
-    membersData.postdocs             = membersData.postdocs             || [];
-    membersData.alumni               = membersData.alumni               || {};
-    membersData.alumni.phd           = membersData.alumni.phd           || [];
-    membersData.alumni.ms            = membersData.alumni.ms            || [];
-    membersData.alumni.postdoc       = membersData.alumni.postdoc       || [];
-    membersData.alumni.urop          = membersData.alumni.urop          || [];
-    membersData.alumni.msrp          = membersData.alumni.msrp          || [];
-    membersData.alumni.hhmi_mit      = membersData.alumni.hhmi_mit      || [];
-    membersData.alumni.visiting      = membersData.alumni.visiting      || [];
+    membersData.grad_students            = membersData.grad_students            || [];
+    membersData.postdocs                 = membersData.postdocs                 || [];
+    membersData.alumni                   = membersData.alumni                   || {};
+    membersData.alumni.phd               = membersData.alumni.phd               || [];
+    membersData.alumni.ms                = membersData.alumni.ms                || [];
+    membersData.alumni.postdoc           = membersData.alumni.postdoc           || [];
+    membersData.alumni.urop              = membersData.alumni.urop              || [];
+    membersData.alumni.msrp              = membersData.alumni.msrp              || [];
+    membersData.alumni.hhmi_mit          = membersData.alumni.hhmi_mit          || [];
+    membersData.alumni.visiting          = membersData.alumni.visiting          || [];
     membersData.alumni.technical_associate =
       membersData.alumni.technical_associate || [];
 
@@ -586,8 +589,7 @@ function renderGroup(group) {
   const el      = document.getElementById(`list-${group}`);
   const members = membersData[group];
   if (!members || members.length === 0) {
-    el.innerHTML =
-      '<div class="empty-state">No members yet. Add one above.</div>';
+    el.innerHTML = '<div class="empty-state">No members yet. Add one above.</div>';
     return;
   }
   el.innerHTML = members.map((m, i) => `
@@ -616,10 +618,7 @@ function renderGroup(group) {
           ✏️ Edit
         </button>
         <button class="btn btn-sm btn-outline-warning"
-                onclick="confirmAction(
-                  'Move to Alumni?',
-                  '${m.name} will be removed from the active list and added to Alumni.',
-                  () => moveToAlumni('${group}',${i}))">
+                onclick="openAlumniModal('${group}',${i})">
           → Alumni
         </button>
         <button class="btn btn-sm btn-outline-danger"
@@ -639,14 +638,14 @@ function renderAlumni() {
   const a  = membersData.alumni;
 
   const sections = [
-    { key: 'phd',                label: 'Ph.D. Alumni' },
-    { key: 'ms',                 label: 'M.S. Alumni' },
-    { key: 'postdoc',            label: 'Postdoctoral Alumni' },
-    { key: 'urop',               label: 'UROP' },
-    { key: 'msrp',               label: 'MSRP' },
-    { key: 'hhmi_mit',           label: 'HHMI/MIT' },
-    { key: 'visiting',           label: 'Visiting Students' },
-    { key: 'technical_associate',label: 'Technical Associates' }
+    { key: 'phd',                 label: 'Ph.D. Alumni' },
+    { key: 'ms',                  label: 'M.S. Alumni' },
+    { key: 'postdoc',             label: 'Postdoctoral Alumni' },
+    { key: 'urop',                label: 'UROP' },
+    { key: 'msrp',                label: 'MSRP' },
+    { key: 'hhmi_mit',            label: 'HHMI/MIT' },
+    { key: 'visiting',            label: 'Visiting Students' },
+    { key: 'technical_associate', label: 'Technical Associates' }
   ];
 
   const makeTag = (type, i, name) =>
@@ -673,17 +672,16 @@ function renderAlumni() {
 function renderPapers() {
   const el = document.getElementById('list-papers');
   if (!papersData || papersData.length === 0) {
-    el.innerHTML =
-      '<div class="empty-state">No publications yet. Add one above.</div>';
+    el.innerHTML = '<div class="empty-state">No publications yet. Add one above.</div>';
     return;
   }
   const sorted = [...papersData].sort((a, b) => b.year - a.year);
   el.innerHTML = sorted.map(p => {
     const idx = papersData.indexOf(p);
     const links = [
-      p.journal_link ? `<a href="${p.journal_link}" target="_blank">Journal</a>` : '',
-      p.pubmed_link  ? `<a href="${p.pubmed_link}"  target="_blank">PubMed Central</a>` : '',
-      p.biorxiv_link ? `<a href="${p.biorxiv_link}" target="_blank">bioRxiv</a>` : ''
+      p.journal_link ? `<a href="${p.journal_link}">Journal</a>`           : '',
+      p.pubmed_link  ? `<a href="${p.pubmed_link}">PubMed Central</a>`     : '',
+      p.biorxiv_link ? `<a href="${p.biorxiv_link}">bioRxiv</a>`           : ''
     ].filter(Boolean).join('');
 
     return `
@@ -693,9 +691,7 @@ function renderPapers() {
           <div class="meta">
             ${p.authors} — <em>${p.journal}</em>, ${p.year}
           </div>
-          ${links
-            ? `<div class="pub-link-pills">${links}</div>`
-            : ''}
+          ${links ? `<div class="pub-link-pills">${links}</div>` : ''}
         </div>
         <button class="btn btn-sm btn-outline-danger flex-shrink-0"
                 onclick="confirmAction(
@@ -737,7 +733,6 @@ function openEditMember(group, index) {
   document.getElementById('m-edit-group').value = group;
   document.getElementById('m-name').value = m.name || '';
   document.getElementById('m-bio').value  = m.bio  || '';
-
   if (m.image) {
     const pr = document.getElementById('m-photo-preview');
     pr.src = `${RAW_BASE}/${m.image.replace(/^\//,'')}`;
@@ -752,10 +747,8 @@ function openEditMember(group, index) {
 }
 
 function clearMemberForm() {
-  ['m-name','m-bio'].forEach(id =>
-    document.getElementById(id).value = '');
-  ['m-photo','m-structure'].forEach(id =>
-    document.getElementById(id).value = '');
+  ['m-name','m-bio'].forEach(id => document.getElementById(id).value = '');
+  ['m-photo','m-structure'].forEach(id => document.getElementById(id).value = '');
   ['m-photo-preview','m-structure-preview'].forEach(id => {
     const el = document.getElementById(id);
     el.src = ''; el.style.display = 'none';
@@ -797,13 +790,13 @@ async function uploadImageFile(file, path) {
 }
 
 async function saveMember() {
-  const name      = document.getElementById('m-name').value.trim();
-  const bio       = document.getElementById('m-bio').value.trim();
-  const group     = document.getElementById('m-edit-group').value;
-  const editIdx   = document.getElementById('m-edit-index').value;
-  const photoFile = document.getElementById('m-photo').files[0];
-  const structFile= document.getElementById('m-structure').files[0];
-  const errEl     = document.getElementById('m-error');
+  const name       = document.getElementById('m-name').value.trim();
+  const bio        = document.getElementById('m-bio').value.trim();
+  const group      = document.getElementById('m-edit-group').value;
+  const editIdx    = document.getElementById('m-edit-index').value;
+  const photoFile  = document.getElementById('m-photo').files[0];
+  const structFile = document.getElementById('m-structure').files[0];
+  const errEl      = document.getElementById('m-error');
 
   if (!name || !bio) {
     errEl.textContent = 'Name and research description are required.';
@@ -814,10 +807,7 @@ async function saveMember() {
   showLoading('Saving…');
 
   try {
-    const existing = editIdx !== ''
-      ? membersData[group][parseInt(editIdx)]
-      : {};
-
+    const existing = editIdx !== '' ? membersData[group][parseInt(editIdx)] : {};
     let imagePath     = existing.image     || '';
     let structurePath = existing.structure || '';
 
@@ -830,11 +820,12 @@ async function saveMember() {
     if (structFile) {
       const ext   = structFile.name.split('.').pop().toLowerCase();
       const fname = toFilename(name, ext);
-      await uploadImageFile(structFile, `assets/img/structures/${fname}`);
-      structurePath = `/assets/img/structures/${fname}`;
+      await uploadImageFile(structFile, `assets/img/carousel/${fname}`);
+      structurePath = `/assets/img/carousel/${fname}`;
     }
 
-    const member = { name, bio, image: imagePath, structure: structurePath };
+    const member = { name, bio, image: imagePath };
+    if (structurePath) member.structure = structurePath;
 
     if (editIdx !== '') {
       membersData[group][parseInt(editIdx)] = member;
@@ -868,13 +859,24 @@ async function saveMembers(message) {
   return ghPut('_data/members.yml', yaml, message, membersSHA);
 }
 
-// ── MOVE TO ALUMNI ────────────────────────────────────
-async function moveToAlumni(group, index) {
-  const m    = membersData[group][index];
-  const type = group === 'grad_students' ? 'phd' : 'postdoc';
+// ── ALUMNI MODAL ──────────────────────────────────────
+function openAlumniModal(group, index) {
+  _alumniGroup = group;
+  _alumniIndex = index;
+  const name = membersData[group][index].name;
+  document.getElementById('alumni-member-name').textContent = name;
+  new bootstrap.Modal(document.getElementById('alumniModal')).show();
+}
+
+async function confirmMoveToAlumni(type) {
+  bootstrap.Modal.getInstance(
+    document.getElementById('alumniModal')
+  ).hide();
+
+  const m = membersData[_alumniGroup][_alumniIndex];
   showLoading('Moving to alumni…');
   try {
-    membersData[group].splice(index, 1);
+    membersData[_alumniGroup].splice(_alumniIndex, 1);
     membersData.alumni[type].push({ name: m.name });
     const result = await saveMembers(`Move ${m.name} to alumni`);
     membersSHA = result.content.sha;
@@ -886,6 +888,8 @@ async function moveToAlumni(group, index) {
     console.error(e);
   } finally {
     hideLoading();
+    _alumniGroup = null;
+    _alumniIndex = null;
   }
 }
 
@@ -965,7 +969,7 @@ async function savePaper() {
     papersData.unshift(paper);
 
     const yaml = jsyaml.dump(papersData, { lineWidth: -1, quotingType: '"' });
-    const result = await ghPut('_data/papers.yml', yaml,
+    const result = await ghPut('_data/publications.yml', yaml,
       `Add paper: ${title}`, papersSHA);
     papersSHA = result.content.sha;
 
@@ -990,7 +994,7 @@ async function removePaper(index) {
   try {
     papersData.splice(index, 1);
     const yaml = jsyaml.dump(papersData, { lineWidth: -1, quotingType: '"' });
-    const result = await ghPut('_data/papers.yml', yaml,
+    const result = await ghPut('_data/publications.yml', yaml,
       `Remove paper: ${title}`, papersSHA);
     papersSHA = result.content.sha;
     renderAll();
