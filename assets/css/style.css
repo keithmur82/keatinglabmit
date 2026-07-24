@@ -259,12 +259,13 @@ hr {
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  background-color: white;
 }
 
 .carousel-img {
   height: 420px;
   object-fit: contain;
-  background-color: #0a0a0a;
+  background-color: white;
 }
 
 .carousel-control-prev,
