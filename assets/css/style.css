@@ -90,9 +90,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .pi-photo {
   width: 100%;
-  max-width: 200px;
+  height: 100%;
+  object-fit: cover;
   border-radius: 4px;
 }
+
 
 .pi-credentials {
   list-style: none;
@@ -157,8 +159,9 @@ h1, h2, h3, h4, h5, h6 {
     aspect-ratio: 1 / 1;
   }
 
-  .pi-photo {
+    .pi-photo {
     max-width: 100%;
+    height: auto;
   }
 
   .structure-img {
