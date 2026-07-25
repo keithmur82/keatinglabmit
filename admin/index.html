@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,6 +130,26 @@
       color: white;
       border-color: var(--mit-red);
     }
+    .research-row {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .research-row:last-child { border-bottom: none; }
+    .research-row .r-text { flex: 1; min-width: 0; }
+    .research-row .r-text strong { display: block; font-size: 0.95rem; }
+    .research-row .r-text p {
+      font-size: 0.82rem; color: #666; margin: 0.2rem 0 0;
+      display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .research-row .r-actions {
+      display: flex; gap: 0.25rem; flex-shrink: 0;
+    }
+    #r-body {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem; line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -190,6 +211,12 @@
           📄 &nbsp;Publications
         </button>
       </li>
+      <li class="nav-item">
+        <button class="nav-link" id="tab-btn-research"
+                onclick="switchTab('research')">
+          🧬 &nbsp;Research
+        </button>
+      </li>
     </ul>
 
     <!-- ── PEOPLE TAB ───────────────────────────────── -->
@@ -234,6 +261,23 @@
           </button>
         </div>
         <div id="list-papers"></div>
+      </div>
+    </div>
+
+    <!-- ── RESEARCH TAB ─────────────────────────── -->
+    <div id="tab-research" style="display:none">
+      <div class="section-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h5 class="section-title">Research Page</h5>
+          <button class="btn btn-primary btn-sm" onclick="openAddSection()">
+            + Add Section
+          </button>
+        </div>
+        <p class="text-muted mb-3" style="font-size:0.82rem">
+          Each section is one heading and its text on the Research page.
+          Use the arrows to change the order they appear in.
+        </p>
+        <div id="list-research"></div>
       </div>
     </div>
 
@@ -458,6 +502,46 @@
 </div>
 
 
+<!-- ── RESEARCH SECTION MODAL ───────────────────── -->
+<div class="modal fade" id="researchModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header modal-header-red">
+        <h5 class="modal-title" id="researchModalTitle">Add Section</h5>
+        <button type="button" class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Heading</label>
+          <input type="text" class="form-control" id="r-heading"
+                 placeholder="e.g. bZIP Transcription Factors">
+        </div>
+        <div class="mb-2">
+          <label class="form-label fw-semibold">Text</label>
+          <textarea class="form-control" id="r-body" rows="14"
+                    placeholder="Write the section text here."></textarea>
+          <div class="form-text">
+            Leave a blank line between paragraphs.
+            Wrap words in **two stars** to bold them.
+            Start a line with a hyphen to make a bullet.
+          </div>
+        </div>
+        <input type="hidden" id="r-edit-index">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="saveSection()">
+          Save section
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- ══ SCRIPTS ════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
 </script>
@@ -483,6 +567,9 @@ let membersData = null;
 let membersSHA  = null;
 let papersData  = null;
 let papersSHA   = null;
+let researchData  = null;
+let researchSHA   = null;
+let researchFront = '';
 
 // ── Alumni move state ─────────────────────────────────
 let _alumniGroup = null;
@@ -545,14 +632,17 @@ function decodeGH(encoded) {
 async function loadData() {
   showLoading('Loading website data...');
   try {
-    const [mf, pf] = await Promise.all([
+    const [mf, pf, rf] = await Promise.all([
       ghGet('_data/members.yml'),
-      ghGet('_data/publications.yml')
+      ghGet('_data/publications.yml'),
+      ghGet(RESEARCH_PATH)
     ]);
     membersData = jsyaml.load(decodeGH(mf.content));
     membersSHA  = mf.sha;
     papersData  = jsyaml.load(decodeGH(pf.content)) || [];
     papersSHA   = pf.sha;
+    researchData = parseResearch(decodeGH(rf.content));
+    researchSHA  = rf.sha;
 
     membersData.grad_students            = membersData.grad_students            || [];
     membersData.postdocs                 = membersData.postdocs                 || [];
@@ -583,6 +673,7 @@ function renderAll() {
   renderGroup('postdocs');
   renderAlumni();
   renderPapers();
+  renderResearch();
 }
 
 function renderGroup(group) {
@@ -705,14 +796,12 @@ function renderPapers() {
 
 // ── TABS ──────────────────────────────────────────────
 function switchTab(tab) {
-  document.getElementById('tab-people').style.display =
-    tab === 'people' ? '' : 'none';
-  document.getElementById('tab-publications').style.display =
-    tab === 'publications' ? '' : 'none';
-  document.getElementById('tab-btn-people')
-          .classList.toggle('active', tab === 'people');
-  document.getElementById('tab-btn-publications')
-          .classList.toggle('active', tab === 'publications');
+  ['people', 'publications', 'research'].forEach(name => {
+    document.getElementById(`tab-${name}`).style.display =
+      name === tab ? '' : 'none';
+    document.getElementById(`tab-btn-${name}`)
+            .classList.toggle('active', name === tab);
+  });
 }
 
 // ── MEMBER MODAL ──────────────────────────────────────
@@ -1008,6 +1097,142 @@ async function removePaper(index) {
 }
 
 // ── UI HELPERS ────────────────────────────────────────
+// ── RESEARCH PAGE ───────────────────────────────
+const RESEARCH_PATH = 'research/index.md';
+
+function escapeHTML(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;',
+    '"': '&quot;', "'": '&#39;'
+  }[c]));
+}
+
+function parseResearch(md) {
+  let body = md;
+  const fm = md.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
+  researchFront = fm ? fm[0] : '';
+  if (fm) body = md.slice(fm[0].length);
+
+  return body.split(/\r?\n---+[ \t]*\r?\n/)
+    .map(block => {
+      const lines = block.trim().split(/\r?\n/);
+      let heading = '';
+      if (lines.length && /^##\s+/.test(lines[0])) {
+        heading = lines.shift().replace(/^##\s+/, '').trim();
+      }
+      return { heading, body: lines.join('\n').trim() };
+    })
+    .filter(s => s.heading || s.body);
+}
+
+function serializeResearch() {
+  const parts = researchData.map(s =>
+    (s.heading ? `## ${s.heading}\n\n` : '') + s.body.trim() + '\n'
+  );
+  return researchFront + '\n' + parts.join('\n---\n\n');
+}
+
+function renderResearch() {
+  const el = document.getElementById('list-research');
+  if (!researchData || researchData.length === 0) {
+    el.innerHTML =
+      '<div class="empty-state">No sections yet. Add one above.</div>';
+    return;
+  }
+  el.innerHTML = researchData.map((s, i) => `
+    <div class="research-row">
+      <div class="r-text">
+        <strong>${escapeHTML(s.heading || '(no heading)')}</strong>
+        <p>${escapeHTML(s.body.replace(/\s+/g, ' '))}</p>
+      </div>
+      <div class="r-actions">
+        <button class="btn btn-sm btn-outline-secondary"
+                onclick="moveSection(${i}, -1)"
+                ${i === 0 ? 'disabled' : ''} title="Move up">↑</button>
+        <button class="btn btn-sm btn-outline-secondary"
+                onclick="moveSection(${i}, 1)"
+                ${i === researchData.length - 1 ? 'disabled' : ''}
+                title="Move down">↓</button>
+        <button class="btn btn-sm btn-outline-secondary"
+                onclick="openEditSection(${i})" title="Edit">✏️</button>
+        <button class="btn btn-sm btn-outline-danger"
+                onclick="confirmAction(
+                  'Remove this section?',
+                  '${escapeHTML(s.heading).replace(/'/g, "\\'")}',
+                  () => removeSection(${i}))" title="Delete">🗑</button>
+      </div>
+    </div>`).join('');
+}
+
+function openAddSection() {
+  document.getElementById('researchModalTitle').textContent = 'Add Section';
+  document.getElementById('r-heading').value    = '';
+  document.getElementById('r-body').value       = '';
+  document.getElementById('r-edit-index').value = '';
+  new bootstrap.Modal(document.getElementById('researchModal')).show();
+}
+
+function openEditSection(i) {
+  const s = researchData[i];
+  document.getElementById('researchModalTitle').textContent = 'Edit Section';
+  document.getElementById('r-heading').value    = s.heading;
+  document.getElementById('r-body').value       = s.body;
+  document.getElementById('r-edit-index').value = i;
+  new bootstrap.Modal(document.getElementById('researchModal')).show();
+}
+
+async function saveSection() {
+  const heading = document.getElementById('r-heading').value.trim();
+  const body    = document.getElementById('r-body').value.trim();
+  if (!heading && !body) return;
+
+  const raw = document.getElementById('r-edit-index').value;
+  if (raw === '') researchData.push({ heading, body });
+  else            researchData[Number(raw)] = { heading, body };
+
+  bootstrap.Modal.getInstance(
+    document.getElementById('researchModal')
+  ).hide();
+
+  await commitResearch(
+    raw === '' ? `Add research section: ${heading}`
+               : `Update research section: ${heading}`
+  );
+}
+
+async function moveSection(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= researchData.length) return;
+  [researchData[i], researchData[j]] = [researchData[j], researchData[i]];
+  await commitResearch('Reorder research sections');
+}
+
+async function removeSection(i) {
+  const heading = researchData[i].heading;
+  researchData.splice(i, 1);
+  await commitResearch(`Remove research section: ${heading}`);
+}
+
+async function commitResearch(message) {
+  showLoading('Saving research page\u2026');
+  try {
+    const res = await ghPut(
+      RESEARCH_PATH, serializeResearch(), message, researchSHA
+    );
+    researchSHA = res.content.sha;
+    renderResearch();
+    showStatus('success',
+      'Research page saved. The site updates in a minute or two.');
+  } catch (e) {
+    showStatus('error',
+      'Could not save the research page. Reloading the latest version.');
+    console.error(e);
+    await loadData();
+  } finally {
+    hideLoading();
+  }
+}
+
 function showLoading(msg) {
   document.getElementById('loadingMsg').textContent = msg;
   document.getElementById('loadingOverlay').style.display = 'flex';
