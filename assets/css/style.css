@@ -128,9 +128,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .member-photo-col img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
+  width: auto;
+  height: 240px;
+  object-fit: contain;
   border-radius: 4px;
   margin-bottom: 0.5rem;
   display: block;
