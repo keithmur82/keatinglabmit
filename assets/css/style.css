@@ -112,8 +112,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .member-photo-col img {
-  width: 130px;
-  height: 130px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 0.5rem;
@@ -122,25 +122,24 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto;
 }
 
-.member-name {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  margin: 0;
+/* ── People Page — Mobile ────────────────────────── */
+@media (max-width: 767px) {
+  .member-photo-col img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .pi-photo {
+    max-width: 100%;
+  }
+
+  .structure-img {
+    max-height: none;
+    width: 100%;
+  }
 }
 
-.member-bio-col p {
-  font-size: 0.9rem;
-  color: #444;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.structure-img {
-  max-width: 100%;
-  max-height: 160px;
-  object-fit: contain;
-}
 
 /* Alumni */
 .alumni-list {
