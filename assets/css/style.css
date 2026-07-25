@@ -116,6 +116,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem 0;
 }
 
+.member-row img {
+  max-width: 100%;
+  height: auto;
+}
+
 .member-divider {
   border: none;
   border-top: 1px solid #eee;
