@@ -32,7 +32,7 @@ grad_students:
     image: /assets/img/members/haley-goodwin.jpg
   - name: Jessie Gan
     bio: I am working on computational models for peptide binder design.
-    image: /assets/img/members/jessie-guan.jpg
+    image: /assets/img/members/jessie-gan.jpg
     structure: /assets/img/structures/jessie-structure.png
 postdocs:
   - name: Joel Sexton
