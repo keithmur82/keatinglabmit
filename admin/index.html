@@ -552,8 +552,9 @@
 // ── CONFIG ────────────────────────────────────────────
 const OWNER     = 'keithmur82';
 const REPO      = 'keatinglabmit';
+const BRANCH    = 'dev';
 const STORE_KEY = 'keatinglab_admin_token';
-const RAW_BASE  = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main`;
+const RAW_BASE  = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}`;
 const API_BASE  = `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
 
 const getToken   = () => localStorage.getItem(STORE_KEY) || '';
@@ -577,7 +578,7 @@ let _alumniIndex = null;
 
 // ── GITHUB API ────────────────────────────────────────
 async function ghGet(path) {
-  const r = await fetch(`${API_BASE}/${path}`, {
+  const r = await fetch(`${API_BASE}/${path}?ref=${BRANCH}`, {
     headers: {
       Authorization: `token ${getToken()}`,
       Accept: 'application/vnd.github.v3+json'
@@ -590,6 +591,7 @@ async function ghGet(path) {
 async function ghPut(path, textContent, message, sha = null) {
   const body = {
     message,
+    branch: BRANCH,
     content: btoa(unescape(encodeURIComponent(textContent)))
   };
   if (sha) body.sha = sha;
@@ -609,7 +611,7 @@ async function ghPut(path, textContent, message, sha = null) {
 async function ghPutBinary(path, b64, message) {
   let sha = null;
   try { sha = (await ghGet(path)).sha; } catch {}
-  const body = { message, content: b64 };
+  const body = { message, branch: BRANCH, content: b64 };
   if (sha) body.sha = sha;
   const r = await fetch(`${API_BASE}/${path}`, {
     method: 'PUT',
