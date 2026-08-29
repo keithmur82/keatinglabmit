@@ -449,11 +449,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header modal-header-red">
-        <h5 class="modal-title">Add Publication</h5>
+        <h5 class="modal-title" id="paperModalTitle">Add Publication</h5>
         <button type="button" class="btn-close btn-close-white"
                 data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
+        <input type="hidden" id="p-edit-index">
         <div class="mb-3">
           <label class="form-label fw-semibold">
             Paper Title <span class="text-danger">*</span>
@@ -508,7 +509,8 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary"
                 data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" onclick="savePaper()">
+        <button type="button" class="btn btn-primary" onclick="savePaper()"
+                id="paperModalSaveBtn">
           Save Publication
         </button>
       </div>
@@ -869,12 +871,18 @@ function renderPapers() {
           </div>
           ${links ? `<div class="pub-link-pills">${links}</div>` : ''}
         </div>
-        <button class="btn btn-sm btn-outline-danger flex-shrink-0"
-                onclick="confirmAction(
-                  'Remove this publication?','',
-                  () => removePaper(${idx}))">
-          🗑
-        </button>
+        <div class="d-flex gap-2 flex-shrink-0">
+          <button class="btn btn-sm btn-outline-secondary"
+                  onclick="openEditPaper(${idx})">
+            ✏️ Edit
+          </button>
+          <button class="btn btn-sm btn-outline-danger"
+                  onclick="confirmAction(
+                    'Remove this publication?','',
+                    () => removePaper(${idx}))">
+            🗑
+          </button>
+        </div>
       </div>`;
   }).join('');
 }
@@ -1105,6 +1113,9 @@ async function removeAlumni(type, index) {
 
 // ── PUBLICATIONS ──────────────────────────────────────
 function openAddPaper() {
+  document.getElementById('paperModalTitle').textContent = 'Add Publication';
+  document.getElementById('paperModalSaveBtn').textContent = 'Save Publication';
+  document.getElementById('p-edit-index').value   = '';
   document.getElementById('p-title').value        = '';
   document.getElementById('p-authors').value      = '';
   document.getElementById('p-journal').value      = '';
@@ -1112,6 +1123,22 @@ function openAddPaper() {
   document.getElementById('p-journal-link').value = '';
   document.getElementById('p-pubmed-link').value  = '';
   document.getElementById('p-biorxiv-link').value = '';
+  document.getElementById('p-error').style.display = 'none';
+  new bootstrap.Modal(document.getElementById('paperModal')).show();
+}
+
+function openEditPaper(index) {
+  const p = papersData[index];
+  document.getElementById('paperModalTitle').textContent = 'Edit Publication';
+  document.getElementById('paperModalSaveBtn').textContent = 'Save Changes';
+  document.getElementById('p-edit-index').value   = index;
+  document.getElementById('p-title').value        = p.title        || '';
+  document.getElementById('p-authors').value      = p.authors      || '';
+  document.getElementById('p-journal').value      = p.journal      || '';
+  document.getElementById('p-year').value         = p.year         || new Date().getFullYear();
+  document.getElementById('p-journal-link').value = p.journal_link || '';
+  document.getElementById('p-pubmed-link').value  = p.pubmed_link  || '';
+  document.getElementById('p-biorxiv-link').value = p.biorxiv_link || '';
   document.getElementById('p-error').style.display = 'none';
   new bootstrap.Modal(document.getElementById('paperModal')).show();
 }
@@ -1125,6 +1152,7 @@ async function savePaper() {
   const pubmed_link  = document.getElementById('p-pubmed-link').value.trim();
   const biorxiv_link = document.getElementById('p-biorxiv-link').value.trim();
   const errEl        = document.getElementById('p-error');
+  const editIdx      = document.getElementById('p-edit-index').value;
 
   if (!title || !authors || !journal || !year) {
     errEl.textContent = 'Please fill in title, authors, journal and year.';
@@ -1140,11 +1168,16 @@ async function savePaper() {
     if (pubmed_link)  paper.pubmed_link  = pubmed_link;
     if (biorxiv_link) paper.biorxiv_link = biorxiv_link;
 
-    papersData.unshift(paper);
+    if (editIdx !== '') {
+      papersData[parseInt(editIdx)] = paper;
+    } else {
+      papersData.unshift(paper);
+    }
 
     const yaml = jsyaml.dump(papersData, { lineWidth: -1, quotingType: '"' });
     const result = await ghPut('_data/publications.yml', yaml,
-      `Add paper: ${title}`, papersSHA);
+      editIdx !== '' ? `Update paper: ${title}` : `Add paper: ${title}`,
+      papersSHA);
     papersSHA = result.content.sha;
 
     bootstrap.Modal.getInstance(
@@ -1152,7 +1185,7 @@ async function savePaper() {
     ).hide();
     renderAll();
     showStatus('success',
-      '✅ Publication added. Website updates in ~60 seconds.');
+      `✅ Publication ${editIdx !== '' ? 'updated' : 'added'}. Website updates in ~60 seconds.`);
   } catch (e) {
     errEl.textContent = 'Something went wrong. Please try again.';
     errEl.style.display = 'block';
